@@ -23,7 +23,7 @@ Start a fresh chat with:
 - Keep the carousel centered and visually dominant. Keep the ticket booth and crow lamp distinct at the lower left and right. Preserve readable silhouettes for the moon, distant roller coaster, entrance gates, fog, and foreground terrain.
 - Begin on an accessible start overlay with the experience title, short invitation, audio expectation, and a minimum 48px Enter control. Enter reveals the static scene HUD and hint position.
 - Reserve a top HUD for the park mark, progressive hint copy, and Play/Pause control; reserve the bottom safe area for temporary captions. The Play/Pause control remains visibly disabled until its system is implemented.
-- Use original inline SVG and CSS graphics. Ambient animation, audio, story sequences, and live scene-object interactions are excluded from this checkpoint.
+- Use an original AI-generated cinematic background with restrained CSS grading and fog overlays. Avoid flat vector, toy-like, brightly saturated, or overtly cartoon styling. Ambient animation, audio, story sequences, and live scene-object interactions are excluded from this checkpoint.
 
 Acceptance checks:
 

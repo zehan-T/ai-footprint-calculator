@@ -25,6 +25,12 @@ Start a fresh chat with:
 - All current artwork is original inline SVG and CSS, so this checkpoint has no external visual-asset credits.
 - Alternative considered: a midnight pumpkin train station. The midway was selected because it communicates the physical theme-park destination more immediately.
 
+### Visual-style revision — 2026-10-12
+
+- Developer feedback rejected the initial cut-paper/cartoon treatment and requested greater realism.
+- The composition remains unchanged, but the approved treatment is now cinematic environmental realism: weathered wood, tarnished brass, wet ground, natural fog, moonlight, and practical tungsten bulbs.
+- The background is an original AI-generated raster asset at `assets/backgrounds/moonlight-midway-realistic-v1.jpg`, encoded as a high-quality JPEG for mobile delivery. It contains no baked-in text, brand, people, violence, or gore; interface copy remains accessible HTML.
+
 Record only what informs the next build decisions:
 
 - creative alternatives for the scene, stories, and audiovisual direction, with reasons for your choices

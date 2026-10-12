@@ -21,6 +21,7 @@ Start or continue a fresh chat with:
 - [x] Initialize the Project 4 repository and verify a zero-dependency local preview.
 - [x] Choose and document the background composition and 2D visual direction.
 - [x] Build the layered static scene, start overlay, and reserved HUD/caption layout.
+- [x] Replace the rejected cartoon treatment with a cinematic realistic background while preserving the approved composition.
 - [ ] Developer reviews the composition in VS Code Browser Preview and on a narrow phone-sized viewport.
 - [ ] Next after approval: add transparent effect layers and identify the first ambient system to implement.
 
