@@ -34,8 +34,9 @@ Start a fresh chat with:
 ### Display typeface — 2026-10-12
 
 - Developer feedback requested a more distinctive treatment for the `Hallo“weenie”` title.
-- The title uses Pirata One, a gothic display face optimized for screens, self-hosted from the [Google Fonts repository](https://github.com/google/fonts/tree/main/ofl/pirataone).
-- Pirata One is distributed under the SIL Open Font License 1.1; the repository includes the license at `assets/fonts/pirata-one/OFL.txt`. It is limited to the main title so body copy and controls remain highly readable.
+- Pirata One was tested and rejected as too strongly gothic.
+- The title now uses Rye, a decorative serif display face with an aged carnival-poster character, self-hosted from the [Google Fonts repository](https://github.com/google/fonts/tree/main/ofl/rye).
+- Rye is distributed under the SIL Open Font License 1.1; the repository includes the license at `assets/fonts/rye/OFL.txt`. It is limited to the main title so body copy and controls remain highly readable.
 
 Record only what informs the next build decisions:
 
