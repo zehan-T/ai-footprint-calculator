@@ -25,12 +25,16 @@ Start or continue a fresh chat with:
 - [ ] Developer reviews the composition in VS Code Browser Preview and on a narrow phone-sized viewport.
 - [x] Add transparent foreground, atmosphere, particle, story-effect, target, and transition layers without activating scene interactions.
 - [ ] Next after approval: establish the first ambient effect and shared Play/Pause state.
+- [x] Establish three coordinated ambient-motion systems and a shared Play/Pause state.
+- [ ] Next: source and verify CC0/public-domain ambient audio, then connect it to Enter and the shared pause state.
 
 Main risk: the center attraction and side discovery anchors must remain visually distinct on short and narrow phones. Verification uses representative viewport screenshots plus direct Developer review; this checkpoint does not claim physical-phone verification.
 
 Verification evidence: the local server returned HTTP 200 for the page, stylesheet, and script. A 500 × 844 browser capture confirmed the complete framed composition with no document scroll. The layout rules also include 320px-relative typography and a short-height adjustment; Windows headless browsers enforced a wider minimum layout viewport, so final narrow-phone verification remains assigned to the Developer in VS Code Browser Preview or on a physical phone.
 
 Layer checkpoint evidence: the served HTML contains the particle and story-effect containers, exactly three reserved scene targets, and the transition curtain. A fresh 500 × 844 capture confirmed that the foreground and atmosphere layers frame rather than obscure the focal carousel, ticket booth, crow lamp, title, or Enter control.
+
+Ambient-motion evidence: the page, CSS, and JavaScript each returned HTTP 200. Static checks confirmed eight animation timelines, the reduced-motion branch, the shared running/paused selector, and the `experiencepausechange` event. Two attempts to run a headless real-click verification were rejected by the local process safety policy, so Developer verification of Enter → Pause → Resume remains open in Browser Preview.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 

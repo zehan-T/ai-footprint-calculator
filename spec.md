@@ -38,6 +38,13 @@ Acceptance checks:
 - Reserve noninteractive hit regions over the ticket booth, carousel, and crow lamp. They remain outside keyboard navigation and ignore pointer input until their trigger behavior is specified.
 - Keep the atmospheric elements static during this checkpoint; their DOM and stacking order are preparation for the ambience checkpoint, not an implied animation design.
 
+### Ambient motion and shared pause — approved 2026-10-12
+
+- Start ambient motion only after the User activates the Enter button.
+- Run three coordinated ambient systems: layered horizontal fog/cloud drift, slowly falling leaves with floating warm motes, and restrained practical-light variation at the carousel and crow lamp.
+- The persistent Play/Pause control freezes and resumes every ambient animation together and updates its icon, accessible label, and pressed state. It also emits one shared `experiencepausechange` event for later audio, story timers, and interaction systems.
+- If `prefers-reduced-motion: reduce` is active, keep all ambient layers static from the beginning; the scene and controls remain usable.
+
 Define only enough to build and verify the current direction:
 
 - the intended User experience and chosen scene, ambience, and story behavior

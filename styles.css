@@ -46,9 +46,12 @@ button { font: inherit; }
 .fog-back { height: 8%; bottom: 26%; }
 .fog-front { z-index: 6; height: 7%; bottom: 8%; opacity: .1; }
 .mote { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #f0c77e; box-shadow: 0 0 8px #e5b668; opacity: .48; }
-.mote--1 { top: 43%; left: 19%; }.mote--2 { top: 52%; left: 73%; width: 2px; height: 2px; }.mote--3 { top: 61%; left: 45%; opacity: .3; }
+.mote--1 { top: 43%; left: 19%; animation-duration: 6.4s; }.mote--2 { top: 52%; left: 73%; width: 2px; height: 2px; animation-duration: 8.1s; animation-delay: -3s; }.mote--3 { top: 61%; left: 45%; opacity: .3; animation-duration: 5.7s; animation-delay: -1.7s; }.mote--4 { top: 37%; left: 58%; width: 2px; height: 2px; animation-duration: 7.3s; animation-delay: -4.5s; }.mote--5 { top: 68%; left: 27%; animation-duration: 9s; animation-delay: -6s; opacity: .25; }
 .leaf { position: absolute; width: 9px; height: 5px; border-radius: 80% 0 80% 0; background: #7b4628; box-shadow: 0 1px 3px #0008; opacity: .7; }
-.leaf--1 { top: 29%; left: 12%; transform: rotate(28deg); }.leaf--2 { top: 39%; right: 8%; transform: rotate(-20deg) scale(.8); }.leaf--3 { top: 67%; left: 82%; transform: rotate(65deg) scale(.65); }
+.leaf--1 { top: 22%; left: 12%; animation-duration: 13s; }.leaf--2 { top: 17%; right: 8%; animation-duration: 15s; animation-delay: -8s; }.leaf--3 { top: 35%; left: 82%; animation-duration: 11s; animation-delay: -4s; }.leaf--4 { top: 12%; left: 38%; animation-duration: 17s; animation-delay: -12s; transform: scale(.75); }.leaf--5 { top: 27%; left: 65%; animation-duration: 14s; animation-delay: -6s; transform: scale(.6); }
+.ambient-light { position: absolute; z-index: 3; pointer-events: none; mix-blend-mode: screen; }
+.ambient-light--carousel { left: 17%; top: 40%; width: 68%; height: 26%; background: radial-gradient(ellipse, #d78d341f 0 35%, transparent 72%); filter: blur(8px); animation: carousel-breathe 4.8s ease-in-out infinite; }
+.ambient-light--lamp { right: 1%; top: 31%; width: 22%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #b6c9762e 0 14%, #99b66c16 32%, transparent 69%); filter: blur(4px); animation: lamp-flicker 3.7s steps(1, end) infinite; }
 .story-effects { z-index: 5; inset: 0; pointer-events: none; }
 .foreground-silhouette { z-index: 7; inset: 0; width: 100%; height: 100%; pointer-events: none; filter: drop-shadow(0 4px 8px #000); }
 .branch { fill: none; stroke: #030406; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; opacity: .58; }
@@ -60,6 +63,59 @@ button { font: inherit; }
 .scene-target--carousel { left: 24%; bottom: 20%; width: 57%; height: 48%; }
 .scene-target--lamp { right: 0; top: 23%; width: 24%; height: 45%; }
 .transition-curtain { position: absolute; z-index: 20; inset: 0; background: #020305; opacity: 0; visibility: hidden; pointer-events: none; }
+
+.cloud-veil--left { animation: cloud-left 32s ease-in-out infinite alternate; }
+.cloud-veil--right { animation: cloud-right 38s ease-in-out infinite alternate; }
+.fog-back { animation: fog-back-drift 23s ease-in-out infinite alternate; }
+.fog-front { animation: fog-front-drift 17s ease-in-out infinite alternate; }
+.mote { animation-name: mote-float; animation-timing-function: ease-in-out; animation-iteration-count: infinite; animation-direction: alternate; }
+.leaf { animation-name: leaf-fall; animation-timing-function: linear; animation-iteration-count: infinite; }
+.ambient { animation-play-state: paused !important; }
+.experience.is-started:not(.is-paused):not(.prefers-reduced-motion) .ambient { animation-play-state: running !important; }
+
+@keyframes cloud-left {
+  from { transform: translate3d(-4%, 0, 0) rotate(8deg); }
+  to { transform: translate3d(26%, 8%, 0) rotate(5deg); }
+}
+
+@keyframes cloud-right {
+  from { transform: translate3d(5%, 0, 0) rotate(-11deg); }
+  to { transform: translate3d(-31%, -6%, 0) rotate(-8deg); }
+}
+
+@keyframes fog-back-drift {
+  from { transform: translate3d(-8%, 0, 0) scaleX(.92); opacity: .055; }
+  to { transform: translate3d(8%, -8%, 0) scaleX(1.04); opacity: .1; }
+}
+
+@keyframes fog-front-drift {
+  from { transform: translate3d(9%, 0, 0) scaleX(1.02); opacity: .07; }
+  to { transform: translate3d(-10%, -5%, 0) scaleX(.94); opacity: .13; }
+}
+
+@keyframes mote-float {
+  from { transform: translate3d(-4px, 7px, 0); filter: brightness(.7); }
+  to { transform: translate3d(9px, -13px, 0); filter: brightness(1.25); }
+}
+
+@keyframes leaf-fall {
+  0% { transform: translate3d(-10px, -12vh, 0) rotate(0deg); opacity: 0; }
+  12% { opacity: .62; }
+  46% { transform: translate3d(18px, 24vh, 0) rotate(165deg); }
+  82% { opacity: .6; }
+  100% { transform: translate3d(-14px, 58vh, 0) rotate(350deg); opacity: 0; }
+}
+
+@keyframes carousel-breathe {
+  0%, 100% { opacity: .45; transform: scale(.98); }
+  50% { opacity: .85; transform: scale(1.035); }
+}
+
+@keyframes lamp-flicker {
+  0%, 16%, 19%, 62%, 65%, 100% { opacity: .72; transform: scale(1); }
+  17%, 63% { opacity: .26; transform: scale(.96); }
+  18%, 64% { opacity: .95; transform: scale(1.03); }
+}
 
 .start-screen {
   position: absolute;
@@ -88,7 +144,7 @@ h1 > span:first-child { display: block; margin-bottom: 5px; color: #d9b06e; font
 .brand-mark, .pause-button { width: 44px; height: 44px; border: 1px solid #e5d5bc42; border-radius: 50%; background: #080b10c7; color: var(--ivory); backdrop-filter: blur(8px); }
 .brand-mark { display: grid; place-items: center; font: 600 .7rem Georgia, serif; letter-spacing: .1em; }
 .hud p { margin: 0; color: #e8e0d4; font-family: Georgia, serif; font-size: clamp(.71rem, 3vw, .83rem); text-align: center; text-shadow: 0 2px 8px #000; }
-.pause-button { display: grid; place-items: center; font-weight: 800; }.pause-button:disabled { opacity: .78; }
+.pause-button { display: grid; place-items: center; padding: 0; font-weight: 800; cursor: pointer; }.pause-button:disabled { opacity: .58; cursor: default; }.pause-button[aria-pressed="true"] { background: #d3a05a; color: #171118; border-color: #f1d09b; }.pause-icon { display: block; line-height: 1; }
 .scene-caption { position: absolute; z-index: 11; left: 50%; bottom: max(20px, env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 8px; width: max-content; max-width: calc(100% - 32px); transform: translateX(-50%); color: #d7d1c9; font-family: Georgia, serif; font-size: clamp(.69rem, 3vw, .81rem); text-shadow: 0 2px 7px #000; transition: opacity .35s ease; }
 .caption-dash { width: 20px; height: 1px; background: #c89d6080; }
 .is-hidden { opacity: 0; pointer-events: none; }
@@ -105,4 +161,5 @@ h1 > span:first-child { display: block; margin-bottom: 5px; color: #d9b06e; font
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .ambient { animation: none !important; }
 }

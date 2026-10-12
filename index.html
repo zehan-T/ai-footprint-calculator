@@ -19,23 +19,29 @@
         />
         <div class="scene-grade"></div>
 
-        <div class="effects-layer effects-layer--back">
-          <div class="cloud-veil cloud-veil--left"></div>
-          <div class="cloud-veil cloud-veil--right"></div>
-          <div class="fog fog-back"></div>
+        <div class="effects-layer effects-layer--back ambient-layer">
+          <div class="cloud-veil cloud-veil--left ambient"></div>
+          <div class="cloud-veil cloud-veil--right ambient"></div>
+          <div class="fog fog-back ambient"></div>
         </div>
 
-        <div class="effects-layer effects-layer--particles">
-          <span class="mote mote--1"></span>
-          <span class="mote mote--2"></span>
-          <span class="mote mote--3"></span>
-          <span class="leaf leaf--1"></span>
-          <span class="leaf leaf--2"></span>
-          <span class="leaf leaf--3"></span>
+        <div class="effects-layer effects-layer--particles ambient-layer">
+          <span class="mote mote--1 ambient"></span>
+          <span class="mote mote--2 ambient"></span>
+          <span class="mote mote--3 ambient"></span>
+          <span class="mote mote--4 ambient"></span>
+          <span class="mote mote--5 ambient"></span>
+          <span class="leaf leaf--1 ambient"></span>
+          <span class="leaf leaf--2 ambient"></span>
+          <span class="leaf leaf--3 ambient"></span>
+          <span class="leaf leaf--4 ambient"></span>
+          <span class="leaf leaf--5 ambient"></span>
         </div>
 
+        <div class="ambient-light ambient-light--carousel ambient"></div>
+        <div class="ambient-light ambient-light--lamp ambient"></div>
         <div class="story-effects" id="story-effects"></div>
-        <div class="fog fog-front"></div>
+        <div class="fog fog-front ambient"></div>
 
         <svg class="foreground-silhouette" viewBox="0 0 390 844" preserveAspectRatio="none">
           <path class="branch branch-left" d="M0 90c22 30 30 67 31 110 18-29 30-48 59-65M24 168c-5-25-11-43-24-58M31 203c24-17 39-28 62-29" />
@@ -54,8 +60,8 @@
       <header class="hud is-hidden" id="scene-hud">
         <div class="brand-mark" aria-label="Moonlight Midway">MM</div>
         <p>Three secrets sleep in the midway</p>
-        <button class="pause-button" type="button" aria-label="Pause experience" disabled>
-          <span aria-hidden="true">Ⅱ</span>
+        <button class="pause-button" id="pause-button" type="button" aria-label="Pause experience" aria-pressed="false" disabled>
+          <span class="pause-icon" aria-hidden="true">Ⅱ</span>
         </button>
       </header>
 
