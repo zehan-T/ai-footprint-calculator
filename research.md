@@ -31,6 +31,12 @@ Start a fresh chat with:
 - The composition remains unchanged, but the approved treatment is now cinematic environmental realism: weathered wood, tarnished brass, wet ground, natural fog, moonlight, and practical tungsten bulbs.
 - The background is an original AI-generated raster asset at `assets/backgrounds/moonlight-midway-realistic-v1.jpg`, encoded as a high-quality JPEG for mobile delivery. It contains no baked-in text, brand, people, violence, or gore; interface copy remains accessible HTML.
 
+### Display typeface — 2026-10-12
+
+- Developer feedback requested a more distinctive treatment for the `Hallo“weenie”` title.
+- The title uses Pirata One, a gothic display face optimized for screens, self-hosted from the [Google Fonts repository](https://github.com/google/fonts/tree/main/ofl/pirataone).
+- Pirata One is distributed under the SIL Open Font License 1.1; the repository includes the license at `assets/fonts/pirata-one/OFL.txt`. It is limited to the main title so body copy and controls remain highly readable.
+
 Record only what informs the next build decisions:
 
 - creative alternatives for the scene, stories, and audiovisual direction, with reasons for your choices
