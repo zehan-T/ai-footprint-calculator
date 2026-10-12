@@ -16,6 +16,15 @@ Start a fresh chat with:
 
 ## Inquiry and decisions
 
+### Approved scene direction — 2026-10-12
+
+- Chosen concept: an abandoned theme-park entrance called Moonlight Midway, centered on a softly glowing haunted carousel.
+- Visual direction: original 2D storybook/cut-paper graphics, using deep indigo, pumpkin orange, aged gold, and ghost green. This keeps the scene playful for ages 10+ while providing strong silhouettes and layer separation for later animation.
+- Composition: moon and roller-coaster silhouette in the far background; carousel as the central focal point; ticket booth and crow-topped lamp as left/right discovery anchors; gates, grass, and fog frame the foreground.
+- The three visual anchors reserve space for later story triggers without specifying their final interaction sequences yet.
+- All current artwork is original inline SVG and CSS, so this checkpoint has no external visual-asset credits.
+- Alternative considered: a midnight pumpkin train station. The midway was selected because it communicates the physical theme-park destination more immediately.
+
 Record only what informs the next build decisions:
 
 - creative alternatives for the scene, stories, and audiovisual direction, with reasons for your choices

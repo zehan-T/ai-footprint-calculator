@@ -1,6 +1,10 @@
 const enterButton = document.querySelector("#enter-button");
-const status = document.querySelector("#status");
+const startScreen = document.querySelector("#start-screen");
+const sceneHud = document.querySelector("#scene-hud");
+const sceneCaption = document.querySelector("#scene-caption");
 
 enterButton.addEventListener("click", () => {
-  status.textContent = "Preview interaction is working.";
+  startScreen.classList.add("is-exiting");
+  sceneHud.classList.remove("is-hidden");
+  sceneCaption.classList.remove("is-hidden");
 });

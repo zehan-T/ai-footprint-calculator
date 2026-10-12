@@ -16,6 +16,22 @@ Start a fresh chat with:
 
 ## Current build contract
 
+### Background and layout checkpoint — approved 2026-10-12
+
+- Present one responsive, non-scrolling portrait scene: the entrance to Moonlight Midway at night.
+- Use a 390 × 844 reference composition that remains usable from 320–430 CSS pixels wide, respects device safe-area insets, and expands into a framed phone presentation on larger screens.
+- Keep the carousel centered and visually dominant. Keep the ticket booth and crow lamp distinct at the lower left and right. Preserve readable silhouettes for the moon, distant roller coaster, entrance gates, fog, and foreground terrain.
+- Begin on an accessible start overlay with the experience title, short invitation, audio expectation, and a minimum 48px Enter control. Enter reveals the static scene HUD and hint position.
+- Reserve a top HUD for the park mark, progressive hint copy, and Play/Pause control; reserve the bottom safe area for temporary captions. The Play/Pause control remains visibly disabled until its system is implemented.
+- Use original inline SVG and CSS graphics. Ambient animation, audio, story sequences, and live scene-object interactions are excluded from this checkpoint.
+
+Acceptance checks:
+
+- No document scroll or unintended cropping at 320 × 568, 390 × 844, and 430 × 932 viewports.
+- The focal carousel and both future interaction anchors remain identifiable at every target size.
+- Start-screen copy maintains sufficient contrast and the Enter button works with touch, pointer, Enter, and Space through native button behavior.
+- Reduced-motion preference is honored before later motion is introduced.
+
 Define only enough to build and verify the current direction:
 
 - the intended User experience and chosen scene, ambience, and story behavior

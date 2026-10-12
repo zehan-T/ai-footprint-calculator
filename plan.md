@@ -16,6 +16,18 @@ Start or continue a fresh chat with:
 
 ## Checkpoints
 
+### Current checkpoints — 2026-10-12
+
+- [x] Initialize the Project 4 repository and verify a zero-dependency local preview.
+- [x] Choose and document the background composition and 2D visual direction.
+- [x] Build the layered static scene, start overlay, and reserved HUD/caption layout.
+- [ ] Developer reviews the composition in VS Code Browser Preview and on a narrow phone-sized viewport.
+- [ ] Next after approval: add transparent effect layers and identify the first ambient system to implement.
+
+Main risk: the center attraction and side discovery anchors must remain visually distinct on short and narrow phones. Verification uses representative viewport screenshots plus direct Developer review; this checkpoint does not claim physical-phone verification.
+
+Verification evidence: the local server returned HTTP 200 for the page, stylesheet, and script. A 500 × 844 browser capture confirmed the complete framed composition with no document scroll. The layout rules also include 320px-relative typography and a short-height adjustment; Windows headless browsers enforced a wider minimum layout viewport, so final narrow-phone verification remains assigned to the Developer in VS Code Browser Preview or on a physical phone.
+
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
 Test each result before continuing, including related behavior that already works. Update priorities as evidence emerges and preserve meaningful working checkpoints in git. Before delivery, verify the deployed app against the brief and specification.
