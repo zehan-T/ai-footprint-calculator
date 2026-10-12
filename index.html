@@ -18,9 +18,37 @@
           height="1680"
         />
         <div class="scene-grade"></div>
-        <div class="fog fog-back"></div>
+
+        <div class="effects-layer effects-layer--back">
+          <div class="cloud-veil cloud-veil--left"></div>
+          <div class="cloud-veil cloud-veil--right"></div>
+          <div class="fog fog-back"></div>
+        </div>
+
+        <div class="effects-layer effects-layer--particles">
+          <span class="mote mote--1"></span>
+          <span class="mote mote--2"></span>
+          <span class="mote mote--3"></span>
+          <span class="leaf leaf--1"></span>
+          <span class="leaf leaf--2"></span>
+          <span class="leaf leaf--3"></span>
+        </div>
+
+        <div class="story-effects" id="story-effects"></div>
         <div class="fog fog-front"></div>
+
+        <svg class="foreground-silhouette" viewBox="0 0 390 844" preserveAspectRatio="none">
+          <path class="branch branch-left" d="M0 90c22 30 30 67 31 110 18-29 30-48 59-65M24 168c-5-25-11-43-24-58M31 203c24-17 39-28 62-29" />
+          <path class="branch branch-right" d="M390 43c-28 38-37 83-35 138-18-31-33-49-62-62m64 34c11-23 20-41 33-51m-37 83c-25-14-42-21-68-18" />
+          <path class="foreground-grass" d="m0 823 18-45 1 47 20-30-8 40 28-18m331 5-17-50-2 52-19-35 5 42-25-19" />
+        </svg>
         <div class="vignette"></div>
+      </div>
+
+      <div class="interaction-layer is-hidden" id="interaction-layer" aria-hidden="true">
+        <button class="scene-target scene-target--booth" type="button" tabindex="-1" data-target="booth" aria-label="Old ticket booth"></button>
+        <button class="scene-target scene-target--carousel" type="button" tabindex="-1" data-target="carousel" aria-label="Antique carousel"></button>
+        <button class="scene-target scene-target--lamp" type="button" tabindex="-1" data-target="lamp" aria-label="Crow on the lamp"></button>
       </div>
 
       <header class="hud is-hidden" id="scene-hud">
@@ -47,6 +75,8 @@
         Look closely. The midway remembers.
         <span class="caption-dash"></span>
       </div>
+
+      <div class="transition-curtain" id="transition-curtain" aria-hidden="true"></div>
     </main>
     <script src="app.js"></script>
   </body>

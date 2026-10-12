@@ -32,6 +32,12 @@ Acceptance checks:
 - Start-screen copy maintains sufficient contrast and the Enter button works with touch, pointer, Enter, and Space through native button behavior.
 - Reduced-motion preference is honored before later motion is introduced.
 
+### Initial layer structure — approved 2026-10-12
+
+- Separate the flattened environment background from atmospheric back effects, particle placeholders, story effects, foreground silhouettes, interaction targets, persistent interface, captions, and the scene-transition curtain.
+- Reserve noninteractive hit regions over the ticket booth, carousel, and crow lamp. They remain outside keyboard navigation and ignore pointer input until their trigger behavior is specified.
+- Keep the atmospheric elements static during this checkpoint; their DOM and stacking order are preparation for the ambience checkpoint, not an implied animation design.
+
 Define only enough to build and verify the current direction:
 
 - the intended User experience and chosen scene, ambience, and story behavior

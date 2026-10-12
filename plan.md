@@ -23,11 +23,14 @@ Start or continue a fresh chat with:
 - [x] Build the layered static scene, start overlay, and reserved HUD/caption layout.
 - [x] Replace the rejected cartoon treatment with a cinematic realistic background while preserving the approved composition.
 - [ ] Developer reviews the composition in VS Code Browser Preview and on a narrow phone-sized viewport.
-- [ ] Next after approval: add transparent effect layers and identify the first ambient system to implement.
+- [x] Add transparent foreground, atmosphere, particle, story-effect, target, and transition layers without activating scene interactions.
+- [ ] Next after approval: establish the first ambient effect and shared Play/Pause state.
 
 Main risk: the center attraction and side discovery anchors must remain visually distinct on short and narrow phones. Verification uses representative viewport screenshots plus direct Developer review; this checkpoint does not claim physical-phone verification.
 
 Verification evidence: the local server returned HTTP 200 for the page, stylesheet, and script. A 500 × 844 browser capture confirmed the complete framed composition with no document scroll. The layout rules also include 320px-relative typography and a short-height adjustment; Windows headless browsers enforced a wider minimum layout viewport, so final narrow-phone verification remains assigned to the Developer in VS Code Browser Preview or on a physical phone.
+
+Layer checkpoint evidence: the served HTML contains the particle and story-effect containers, exactly three reserved scene targets, and the transition curtain. A fresh 500 × 844 capture confirmed that the foreground and atmosphere layers frame rather than obscure the focal carousel, ticket booth, crow lamp, title, or Enter control.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
