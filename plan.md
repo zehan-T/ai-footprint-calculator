@@ -38,6 +38,8 @@ Ambient-motion evidence: the page, CSS, and JavaScript each returned HTTP 200. S
 
 Revision: Developer requested stronger ambient effects. Fog density and travel, leaf and mote scale/contrast, carousel glow, and lamp flicker range were increased together while retaining the established timing and reduced-motion behavior.
 
+Correction: follow-up review found that the nested rear fog lacked explicit absolute positioning and that the broad carousel halo changed too uniformly to read as a breathing light. The fog now uses positioned, uneven radial banks with larger/faster counter-motion; the carousel adds a canopy-aligned bulb strip and a shorter, higher-contrast brightness cycle.
+
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
 Test each result before continuing, including related behavior that already works. Update priorities as evidence emerges and preserve meaningful working checkpoints in git. Before delivery, verify the deployed app against the brief and specification.
