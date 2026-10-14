@@ -90,11 +90,11 @@ Acceptance checks:
 
 ### Story 3: The Moonlit Beacon — implemented for review 2026-10-14
 
-- Divide the right-side crow lamp into three large keyboard-accessible targets that must be discovered in a top-to-bottom sequence: crow, lantern, then post. A correct selection persists as a pale moonlit marker and updates accessible progress; an out-of-order selection gives a soft pulse and directional hint without erasing progress.
-- After the third signal, lock every scene target and play an eight-second sequence: the lamp casts a restrained beam, the crow flies toward the moon with seven drifting feathers and wing audio, and a `Moonlit Beacon` seal appears before the lamp returns to its ambient state.
-- Use a crow call for the first signal and story opening, a light-switch click for lantern/post feedback, and created wing-flap audio for the flight. Duck and restore ambience around the story, reset the ordered trigger afterward, and preserve partial progress in the other two stories.
+- Use one large keyboard-accessible target over the crow perched above the right-side lamp. One activation immediately locks every scene target and begins the eight-second story; no multi-step progress or ordered lamp interaction is required.
+- During the story, the lamp casts a restrained beam, the crow flies toward the moon with seven drifting feathers and wing audio, and a `Moonlit Beacon` seal appears before the lamp returns to its ambient state.
+- Use a crow call at the opening and created wing-flap audio for the flight. Duck and restore ambience around the story, make the crow available for replay afterward, and preserve partial progress in the other two stories.
 - Provide timed hints at 13 and 23 seconds if untouched. Global Play/Pause must freeze and resume story motion, audio, timing, hints, and interactions as one state.
-- With reduced motion enabled, replace the flight, feathers, and moving beam with a stationary lamp glow and seal while retaining the narrative timing, sound, ordered trigger, and replay behavior.
+- With reduced motion enabled, replace the flight, feathers, and moving beam with a stationary lamp glow and seal while retaining the narrative timing, sound, one-click trigger, and replay behavior.
 
 Define only enough to build and verify the current direction:
 

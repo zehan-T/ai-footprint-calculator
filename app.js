@@ -7,7 +7,7 @@ const captionCopy = document.querySelector("#caption-copy");
 const interactionLayer = document.querySelector("#interaction-layer");
 const boothButton = document.querySelector(".scene-target--booth");
 const carouselButtons = [...document.querySelectorAll(".carousel-horse")];
-const lampStepButtons = [...document.querySelectorAll(".lamp-step")];
+const crowButton = document.querySelector(".scene-target--crow");
 const boothStory = document.querySelector("#story-effects");
 const clueMeter = document.querySelector("#booth-clue-meter");
 const clueMeterCopy = document.querySelector("#clue-meter-copy");
@@ -15,9 +15,6 @@ const clueMarkers = [...clueMeter.querySelectorAll(".clue-dot")];
 const carouselClueMeter = document.querySelector("#carousel-clue-meter");
 const carouselClueCopy = document.querySelector("#carousel-clue-copy");
 const carouselClueMarkers = [...carouselClueMeter.querySelectorAll(".carousel-clue-dot")];
-const lampClueMeter = document.querySelector("#lamp-clue-meter");
-const lampClueCopy = document.querySelector("#lamp-clue-copy");
-const lampClueMarkers = [...lampClueMeter.querySelectorAll(".lamp-clue-dot")];
 const experience = document.querySelector(".experience");
 const pauseButton = document.querySelector("#pause-button");
 const pauseIcon = pauseButton.querySelector(".pause-icon");
@@ -28,7 +25,6 @@ const chimeAudio = document.querySelector("#chime-audio");
 const windUpAudio = document.querySelector("#wind-up-audio");
 const gallopAudio = document.querySelector("#gallop-audio");
 const crowAudio = document.querySelector("#crow-audio");
-const switchAudio = document.querySelector("#switch-audio");
 const wingsAudio = document.querySelector("#wings-audio");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -41,13 +37,11 @@ let hintTimersStarted = false;
 let carouselStoryPlaying = false;
 let carouselStoryCompleted = false;
 let carouselHintTimersStarted = false;
-let lampProgress = 0;
 let lampStoryPlaying = false;
 let lampStoryCompleted = false;
 let lampHintTimersStarted = false;
 const foundCarouselHorses = new Set();
 const completedStories = new Set();
-const lampSequence = ["crow", "lantern", "post"];
 
 const unavailableAudio = new Set();
 const scheduledTimers = new Set();
@@ -62,7 +56,6 @@ const storyAudioTracks = [
   windUpAudio,
   gallopAudio,
   crowAudio,
-  switchAudio,
   wingsAudio
 ];
 
@@ -74,7 +67,6 @@ chimeAudio.volume = 0.32;
 windUpAudio.volume = 0.42;
 gallopAudio.volume = 0.28;
 crowAudio.volume = 0.38;
-switchAudio.volume = 0.34;
 wingsAudio.volume = 0.3;
 
 class PausableTimer {
@@ -148,9 +140,7 @@ function setSceneInteractionsLocked(locked) {
   carouselButtons.forEach((button) => {
     button.disabled = locked || foundCarouselHorses.has(button.dataset.carouselHorse);
   });
-  lampStepButtons.forEach((button, index) => {
-    button.disabled = locked || index < lampProgress;
-  });
+  crowButton.disabled = locked;
 }
 
 function duckAmbientAudio(ducked) {
@@ -410,46 +400,19 @@ function handleCarouselDiscovery(event) {
   }
 }
 
-function updateLampProgress() {
-  lampClueMeter.classList.remove("is-hidden");
-  lampClueMarkers.forEach((marker, index) => {
-    marker.classList.toggle("is-found", index < lampProgress);
-  });
-  lampClueMeter.setAttribute("aria-label", `Moonlit beacon progress: ${lampProgress} of 3`);
-  lampClueCopy.textContent = `${lampProgress} of 3 beacon signals found`;
-}
-
-function resetLampProgress() {
-  lampProgress = 0;
-  lampStepButtons.forEach((button, index) => {
-    button.classList.remove("is-found", "is-wrong");
-    button.disabled = false;
-    const stepName = lampSequence[index];
-    const label = stepName === "crow" ? "Crow above the lamp" : stepName === "lantern" ? "Lamp lantern" : "Lamp post";
-    button.setAttribute("aria-label", `${label}, ${index + 1 === 1 ? "first" : index + 1 === 2 ? "second" : "third"} signal`);
-  });
-  lampClueMarkers.forEach((marker) => marker.classList.remove("is-found"));
-  lampClueMeter.classList.add("is-hidden");
-  lampClueMeter.setAttribute("aria-label", "Moonlit beacon progress: 0 of 3");
-  lampClueCopy.textContent = "0 of 3 beacon signals found";
-}
-
 function finishLampStory() {
   lampStoryPlaying = false;
   lampStoryCompleted = true;
   completedStories.add("lamp");
   experience.classList.remove("is-lamp-story-playing");
   boothStory.setAttribute("aria-hidden", "true");
-  resetLampProgress();
   setSceneInteractionsLocked(false);
-  lampStepButtons.forEach((button) => {
-    button.tabIndex = 0;
-  });
+  crowButton.tabIndex = 0;
   updateHudStoryCount();
   setCaption("The moonlit beacon settles. Follow the crow again whenever you wish.");
   duckAmbientAudio(false);
   resetStoryAudio();
-  lampStepButtons[0].focus({ preventScroll: true });
+  crowButton.focus({ preventScroll: true });
 }
 
 function startLampStory() {
@@ -458,7 +421,7 @@ function startLampStory() {
   boothStory.setAttribute("aria-hidden", "false");
   setSceneInteractionsLocked(true);
   hudHint.textContent = "The crow has awakened the moonlit beacon";
-  setCaption("Three signals answered. The lamp sends its secret toward the moon...");
+  setCaption("The crow answers. The lamp sends its secret toward the moon...");
   duckAmbientAudio(true);
 
   scheduleEvent(() => {
@@ -478,49 +441,9 @@ function startLampStory() {
   scheduleEvent(finishLampStory, 8000);
 }
 
-function pulseWrongLampStep(button) {
-  button.classList.remove("is-wrong");
-  void button.offsetWidth;
-  button.classList.add("is-wrong");
-  scheduleEvent(() => button.classList.remove("is-wrong"), 500);
-}
-
-function handleLampDiscovery(event) {
+function handleCrowDiscovery() {
   if (!experienceStarted || experiencePaused || isAnyStoryPlaying()) return;
-
-  const button = event.currentTarget;
-  const selectedStep = button.dataset.lampStep;
-  const expectedStep = lampSequence[lampProgress];
-
-  if (selectedStep !== expectedStep) {
-    pulseWrongLampStep(button);
-    playStoryAudio(switchAudio);
-    if (lampProgress === 0) {
-      hudHint.textContent = "The first signal waits higher up";
-      setCaption("Start with the watcher perched above the lamp.");
-    } else {
-      hudHint.textContent = "Follow the glow downward";
-      setCaption(lampProgress === 1 ? "The crow points next to the lantern glass." : "One last signal waits lower on the lamp post.");
-    }
-    return;
-  }
-
-  lampProgress += 1;
-  button.classList.add("is-found");
-  button.disabled = true;
-  button.setAttribute("aria-label", `${selectedStep} signal, found`);
-  updateLampProgress();
-  playStoryAudio(selectedStep === "crow" ? crowAudio : switchAudio);
-
-  if (lampProgress === 1) {
-    hudHint.textContent = "The crow looks toward the lantern";
-    setCaption("The crow answers. Now follow its gaze to the lamp glass. 1 of 3.");
-  } else if (lampProgress === 2) {
-    hudHint.textContent = "The light runs down the old post";
-    setCaption("The lantern clicks awake. Trace the glow down the post. 2 of 3.");
-  } else {
-    startLampStory();
-  }
+  startLampStory();
 }
 
 function scheduleBoothHints() {
@@ -566,16 +489,16 @@ function scheduleLampHints() {
   lampHintTimersStarted = true;
 
   scheduleEvent(() => {
-    if (lampProgress === 0 && !isAnyStoryPlaying() && !lampStoryCompleted) {
-      hudHint.textContent = "The highest watcher knows the first signal";
+    if (!isAnyStoryPlaying() && !lampStoryCompleted) {
+      hudHint.textContent = "The highest watcher knows a secret";
       setCaption("Look for a quiet silhouette above the lamp on the right.");
     }
   }, 13000);
 
   scheduleEvent(() => {
-    if (lampProgress === 0 && !isAnyStoryPlaying() && !lampStoryCompleted) {
-      hudHint.textContent = "Follow the crow's light down the lantern";
-      setCaption("Begin with the crow, then trace the lamp from top to bottom.");
+    if (!isAnyStoryPlaying() && !lampStoryCompleted) {
+      hudHint.textContent = "One touch can wake the crow's moonlight";
+      setCaption("Tap the crow perched above the lamp on the right.");
     }
   }, 23000);
 }
@@ -598,9 +521,7 @@ enterButton.addEventListener("click", () => {
   carouselButtons.forEach((button) => {
     button.tabIndex = 0;
   });
-  lampStepButtons.forEach((button) => {
-    button.tabIndex = 0;
-  });
+  crowButton.tabIndex = 0;
   pauseButton.disabled = false;
   setExperiencePaused(false);
   scheduleBoothHints();
@@ -616,6 +537,4 @@ boothButton.addEventListener("click", handleBoothDiscovery);
 carouselButtons.forEach((button) => {
   button.addEventListener("click", handleCarouselDiscovery);
 });
-lampStepButtons.forEach((button) => {
-  button.addEventListener("click", handleLampDiscovery);
-});
+crowButton.addEventListener("click", handleCrowDiscovery);

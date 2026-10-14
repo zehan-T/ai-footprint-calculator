@@ -141,9 +141,9 @@ button { font: inherit; }
 .experience.is-started:not(.is-paused) .interaction-layer:not(.is-locked) { pointer-events: auto; }
 .experience.is-started:not(.is-paused) .interaction-layer:not(.is-locked) .scene-target--booth:not(:disabled),
 .experience.is-started:not(.is-paused) .interaction-layer:not(.is-locked) .carousel-horse:not(:disabled),
-.experience.is-started:not(.is-paused) .interaction-layer:not(.is-locked) .lamp-step:not(:disabled) { pointer-events: auto; cursor: pointer; }
+.experience.is-started:not(.is-paused) .interaction-layer:not(.is-locked) .scene-target--crow:not(:disabled) { pointer-events: auto; cursor: pointer; }
 .scene-target--booth::after { content: ""; position: absolute; inset: 18% 8% 10%; border: 2px solid transparent; border-radius: 45% 45% 18% 18%; }
-.scene-target--booth:focus-visible, .carousel-horse:focus-visible, .lamp-step:focus-visible { outline: 3px solid #ffe0a0; outline-offset: -5px; }
+.scene-target--booth:focus-visible, .carousel-horse:focus-visible, .scene-target--crow:focus-visible { outline: 3px solid #ffe0a0; outline-offset: -5px; }
 .scene-target--booth.is-tapped::after { animation: booth-tap-ring .55s ease-out; }
 .scene-target--booth { left: 0; bottom: 20%; width: 30%; height: 43%; }
 .carousel-horse { width: 17%; height: 29%; border-radius: 48% 48% 35% 35%; }
@@ -152,13 +152,7 @@ button { font: inherit; }
 .carousel-horse--left { left: 29%; bottom: 28%; }
 .carousel-horse--center { left: 44%; bottom: 25%; }
 .carousel-horse--right { left: 60%; bottom: 28%; }
-.lamp-step { right: 0; border-radius: 48%; }
-.lamp-step::after { content: ""; position: absolute; left: 50%; top: 50%; width: 30px; height: 30px; border: 2px solid transparent; border-radius: 50%; transform: translate(-50%, -50%); }
-.lamp-step.is-found::after { border-color: #dfe6a2; box-shadow: 0 0 9px #dce68f, inset 0 0 10px #edf3b650; }
-.lamp-step.is-wrong::after { animation: lamp-wrong-pulse .48s ease-out; }
-.lamp-step--crow { top: 27%; width: 22%; height: 11%; }
-.lamp-step--lantern { top: 36%; width: 22%; height: 12%; }
-.lamp-step--post { right: 1%; top: 47%; width: 18%; height: 18%; }
+.scene-target--crow { right: 0; top: 26%; width: 24%; height: 13%; border-radius: 48%; }
 .clue-meter { position: absolute; left: 10%; bottom: 17%; display: flex; gap: 5px; padding: 6px 8px; border: 1px solid #d8b06a70; border-radius: 999px; background: #100c14bd; box-shadow: 0 5px 18px #000a; transition: opacity .25s ease; pointer-events: none; }
 .clue-meter .clue-dot { width: 8px; height: 13px; border: 1px solid #a77a3d; border-radius: 2px; background: #40301e; transform: rotate(-5deg); transition: background .2s ease, box-shadow .2s ease; }
 .clue-meter .clue-dot:nth-child(2) { transform: rotate(3deg); }
@@ -167,9 +161,6 @@ button { font: inherit; }
 .carousel-clue-meter { left: 48%; bottom: 17%; transform: translateX(-50%); }
 .clue-meter .carousel-clue-dot { width: 11px; height: 11px; border: 2px solid #aa7a36; border-top-color: transparent; border-radius: 50%; transform: rotate(18deg); transition: border-color .2s ease, filter .2s ease; }
 .clue-meter .carousel-clue-dot.is-found { border-color: #f4d27d; border-top-color: transparent; filter: drop-shadow(0 0 5px #eca73d); }
-.lamp-clue-meter { right: 7%; left: auto; bottom: 17%; }
-.clue-meter .lamp-clue-dot { width: 9px; height: 9px; border: 1px solid #858d61; border-radius: 50%; background: #25291f; transition: background .2s ease, box-shadow .2s ease; }
-.clue-meter .lamp-clue-dot.is-found { background: #dce49c; box-shadow: 0 0 8px #cdd978; }
 .transition-curtain { position: absolute; z-index: 20; inset: 0; background: #020305; opacity: 0; visibility: hidden; pointer-events: none; }
 
 .cloud-veil--left { animation: cloud-left 32s ease-in-out infinite alternate; }
@@ -295,11 +286,6 @@ button { font: inherit; }
   0%, 48% { opacity: 0; transform: translate(-50%, -50%) scale(.45) rotate(-5deg); }
   61%, 82% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
   100% { top: 47%; opacity: 0; transform: translate(-50%, -50%) scale(.84) rotate(4deg); }
-}
-
-@keyframes lamp-wrong-pulse {
-  0% { border-color: #e6bd72; box-shadow: 0 0 0 0 #e6a8468c; opacity: .95; }
-  100% { border-color: transparent; box-shadow: 0 0 0 15px transparent; opacity: 0; }
 }
 
 @keyframes lamp-story-glow {

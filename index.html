@@ -123,9 +123,7 @@
         <button class="scene-target carousel-horse carousel-horse--left" type="button" tabindex="-1" data-carousel-horse="left" aria-label="Left carousel horse, not found"></button>
         <button class="scene-target carousel-horse carousel-horse--center" type="button" tabindex="-1" data-carousel-horse="center" aria-label="Center carousel horse, not found"></button>
         <button class="scene-target carousel-horse carousel-horse--right" type="button" tabindex="-1" data-carousel-horse="right" aria-label="Right carousel horse, not found"></button>
-        <button class="scene-target lamp-step lamp-step--crow" type="button" tabindex="-1" data-lamp-step="crow" aria-label="Crow above the lamp, first signal"></button>
-        <button class="scene-target lamp-step lamp-step--lantern" type="button" tabindex="-1" data-lamp-step="lantern" aria-label="Lamp lantern, second signal"></button>
-        <button class="scene-target lamp-step lamp-step--post" type="button" tabindex="-1" data-lamp-step="post" aria-label="Lamp post, third signal"></button>
+        <button class="scene-target scene-target--crow" type="button" tabindex="-1" aria-label="Crow above the lamp, play the Moonlit Beacon story"></button>
         <div class="clue-meter is-hidden" id="booth-clue-meter" role="status" aria-live="polite" aria-label="Ticket booth clue progress: 0 of 3">
           <span class="clue-dot"></span><span class="clue-dot"></span><span class="clue-dot"></span>
           <span class="sr-only" id="clue-meter-copy">0 of 3 tickets found</span>
@@ -133,10 +131,6 @@
         <div class="clue-meter carousel-clue-meter is-hidden" id="carousel-clue-meter" role="status" aria-live="polite" aria-label="Carousel clue progress: 0 of 3">
           <span class="carousel-clue-dot"></span><span class="carousel-clue-dot"></span><span class="carousel-clue-dot"></span>
           <span class="sr-only" id="carousel-clue-copy">0 of 3 carousel horses found</span>
-        </div>
-        <div class="clue-meter lamp-clue-meter is-hidden" id="lamp-clue-meter" role="status" aria-live="polite" aria-label="Moonlit beacon progress: 0 of 3">
-          <span class="lamp-clue-dot"></span><span class="lamp-clue-dot"></span><span class="lamp-clue-dot"></span>
-          <span class="sr-only" id="lamp-clue-copy">0 of 3 beacon signals found</span>
         </div>
       </div>
 
@@ -187,9 +181,6 @@
     </audio>
     <audio id="crow-audio" preload="auto">
       <source src="assets/audio/crow-caw-jofae-361470.mp3" type="audio/mpeg" />
-    </audio>
-    <audio id="switch-audio" preload="auto">
-      <source src="assets/audio/light-switch-breviceps-457037.mp3" type="audio/mpeg" />
     </audio>
     <audio id="wings-audio" preload="auto">
       <source src="assets/audio/wings-flapping-digpro120-395242.mp3" type="audio/mpeg" />
