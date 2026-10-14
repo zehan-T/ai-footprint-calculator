@@ -88,7 +88,7 @@ Credits checkpoint — 2026-10-14: added explicit start-screen and persistent HU
 
 Phase 1 deployment — 2026-10-14: pushed the complete local `main` history to the public repository at `https://github.com/zehan-T/ai-footprint-calculator` and enabled GitHub Pages from the repository root. The Pages build completed successfully for commit `4eeafb8`, with HTTPS enforced at `https://zehan-t.github.io/ai-footprint-calculator/`. Direct requests returned HTTP 200 for the page, CSS, JavaScript, active background image, ambient music, and first-story sound. The subsequent physical-smartphone result is recorded below.
 
-Phase 1 phone verification — 2026-10-14: after receiving the public-URL checklist, the Developer reported the smartphone test as “pass.” This confirms the submitted Phase 1 flow at the level reported by the Developer: public page loading and phone framing, Enter-started sound and motion, shared Play/Pause, the complete replayable ticket-booth story, and Credits access. The device model and browser were not provided and are recorded as unknown rather than inferred.
+Phase 1 phone verification — 2026-10-14: after receiving the public-URL checklist, the Developer reported the smartphone test as “pass” on an iPhone 17 Pro using Google Chrome. This confirms the submitted Phase 1 flow at the level reported by the Developer: public page loading and phone framing, Enter-started sound and motion, shared Play/Pause, the complete replayable ticket-booth story, and Credits access.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
