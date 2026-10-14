@@ -8,33 +8,45 @@ const experience = document.querySelector(".experience");
 const pauseButton = document.querySelector("#pause-button");
 const pauseIcon = pauseButton.querySelector(".pause-icon");
 const ambientAudio = document.querySelector("#ambient-audio");
+const musicAudio = document.querySelector("#music-audio");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let experienceStarted = false;
 let experiencePaused = false;
-let audioUnavailable = false;
+const unavailableAudio = new Set();
+const audioTracks = [
+  { element: ambientAudio, volume: 0.14 },
+  { element: musicAudio, volume: 0.09 }
+];
 
-ambientAudio.volume = 0.18;
+audioTracks.forEach(({ element, volume }) => {
+  element.volume = volume;
+});
 
 function updateMotionPreference() {
   experience.classList.toggle("prefers-reduced-motion", reducedMotion.matches);
 }
 
-function reportAudioFailure() {
-  if (audioUnavailable) return;
+function reportAudioFailure(audio) {
+  unavailableAudio.add(audio);
 
-  audioUnavailable = true;
-  captionCopy.textContent = "The midway is quiet tonight. You can still explore the lights.";
+  if (unavailableAudio.size === audioTracks.length) {
+    captionCopy.textContent = "The midway is quiet tonight. You can still explore the lights.";
+  }
 }
 
-async function playAmbientAudio() {
-  if (!experienceStarted || experiencePaused || audioUnavailable) return;
+async function playAudioTrack(audio) {
+  if (!experienceStarted || experiencePaused || unavailableAudio.has(audio)) return;
 
   try {
-    await ambientAudio.play();
+    await audio.play();
   } catch (error) {
-    reportAudioFailure();
+    reportAudioFailure(audio);
   }
+}
+
+function playAmbientAudio() {
+  audioTracks.forEach(({ element }) => playAudioTrack(element));
 }
 
 function setExperiencePaused(paused) {
@@ -47,7 +59,7 @@ function setExperiencePaused(paused) {
   pauseIcon.textContent = paused ? "▶" : "Ⅱ";
 
   if (paused) {
-    ambientAudio.pause();
+    audioTracks.forEach(({ element }) => element.pause());
   } else {
     playAmbientAudio();
   }
@@ -59,7 +71,9 @@ function setExperiencePaused(paused) {
 
 updateMotionPreference();
 reducedMotion.addEventListener("change", updateMotionPreference);
-ambientAudio.addEventListener("error", reportAudioFailure);
+audioTracks.forEach(({ element }) => {
+  element.addEventListener("error", () => reportAudioFailure(element));
+});
 
 enterButton.addEventListener("click", () => {
   experienceStarted = true;

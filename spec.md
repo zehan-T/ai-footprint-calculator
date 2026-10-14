@@ -66,6 +66,12 @@ Acceptance checks:
 - Keep the loop at a restrained default volume so it supports the scene without masking later story sounds.
 - If loading or autoplay fails, keep the visual experience usable and replace the scene hint with a polite live-region message that the midway is quiet tonight.
 
+### Halloween music layer — approved 2026-10-14
+
+- Layer a gentle CC0 Halloween score under the existing cricket-and-wind ambience so the scene reads more clearly as Halloween without becoming frightening for younger children.
+- Balance the two local tracks at 9% music and 14% ambience. Both begin only after Enter, loop independently, and obey the same Play/Pause state without resetting.
+- If either track fails, allow the other to continue. Show the quiet-night fallback only when both tracks are unavailable.
+
 Define only enough to build and verify the current direction:
 
 - the intended User experience and chosen scene, ambience, and story behavior

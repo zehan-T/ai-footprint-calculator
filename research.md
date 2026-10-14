@@ -52,6 +52,12 @@ Start a fresh chat with:
 - The source page identifies the recording as Creative Commons Zero (CC0) and explicitly permits copying, modification, distribution, and performance without permission. License details were verified on 2026-10-13. Attribution is not required by CC0, but the project retains the creator and source credit.
 - The project stores Freesound's public high-quality MP3 preview locally as `assets/audio/night-ambience-seth-m-275640.mp3` (about 86 KB), avoiding a runtime network dependency. Its short duration keeps mobile loading light; the trade-off is that the ambience must remain quiet enough that repetition is not distracting.
 
+### Halloween music layer — 2026-10-14
+
+- Developer approved the ambience volume but requested a more recognizably Halloween musical layer. Selected `Spooky Halloween Soundtrack` by MusicByMisterbates, an original 56.489-second multi-instrument track. Source: https://freesound.org/people/MusicByMisterbates/sounds/677436/
+- The source page marks the track Creative Commons Zero (CC0), permitting copying, modification, distribution, and performance. The author also asks users to identify the work as `Misterbates — Spooky Halloween`; the project will preserve that voluntary credit.
+- The public high-quality MP3 preview is stored locally as `assets/audio/spooky-halloween-misterbates-677436.mp3` (about 1.25 MiB). It plays beneath the interface at 9% volume while the cricket-and-wind layer is reduced from 18% to 14%, keeping the combined mix restrained.
+
 Record only what informs the next build decisions:
 
 - creative alternatives for the scene, stories, and audiovisual direction, with reasons for your choices
