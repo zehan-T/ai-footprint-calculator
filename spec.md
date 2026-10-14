@@ -88,6 +88,14 @@ Acceptance checks:
 - Provide timed carousel hints at 10 and 19 seconds when untouched. Global Play/Pause must freeze and resume story animation, sound, timing, hints, and interaction as one state.
 - With reduced motion enabled, show a stationary carousel glow and centered medallion rather than rotation or orbital movement while preserving the eight-second narrative timing.
 
+### Story 3: The Moonlit Beacon — implemented for review 2026-10-14
+
+- Divide the right-side crow lamp into three large keyboard-accessible targets that must be discovered in a top-to-bottom sequence: crow, lantern, then post. A correct selection persists as a pale moonlit marker and updates accessible progress; an out-of-order selection gives a soft pulse and directional hint without erasing progress.
+- After the third signal, lock every scene target and play an eight-second sequence: the lamp casts a restrained beam, the crow flies toward the moon with seven drifting feathers and wing audio, and a `Moonlit Beacon` seal appears before the lamp returns to its ambient state.
+- Use a crow call for the first signal and story opening, a light-switch click for lantern/post feedback, and created wing-flap audio for the flight. Duck and restore ambience around the story, reset the ordered trigger afterward, and preserve partial progress in the other two stories.
+- Provide timed hints at 13 and 23 seconds if untouched. Global Play/Pause must freeze and resume story motion, audio, timing, hints, and interactions as one state.
+- With reduced motion enabled, replace the flight, feathers, and moving beam with a stationary lamp glow and seal while retaining the narrative timing, sound, ordered trigger, and replay behavior.
+
 Define only enough to build and verify the current direction:
 
 - the intended User experience and chosen scene, ambience, and story behavior

@@ -30,8 +30,10 @@ Start or continue a fresh chat with:
 - [x] Design and implement the first 5–10 second audiovisual story and its discoverable trigger.
 - [x] Developer reviews the first story's overall direction in Browser Preview and approves continuation.
 - [x] Design and implement Story 2 around three distinct carousel-horse targets.
-- [ ] Developer reviews Story 2's target placement, pacing, motion, and sound balance in Browser Preview.
-- [ ] Next after approval: revise Story 2 from observation, then design Story 3 around the crow lamp.
+- [x] Developer reviews Story 2's target placement, pacing, motion, and sound balance in Browser Preview.
+- [x] Design and implement Story 3 around the crow lamp.
+- [ ] Developer reviews Story 3's ordered targets, visual restraint, pacing, and sound balance in Browser Preview.
+- [ ] Next after approval: perform final integration, add visible credits, and verify all brief requirements.
 
 Main risk: the center attraction and side discovery anchors must remain visually distinct on short and narrow phones. Verification uses representative viewport screenshots plus direct Developer review; this checkpoint does not claim physical-phone verification.
 
@@ -70,6 +72,10 @@ Story 1 checkpoint — 2026-10-14: implemented `The Moonlight Pass` as a replaya
 Story 1 review — 2026-10-14: Developer responded “很好” and requested continuation without a revision, approving the current direction for the next checkpoint.
 
 Story 2 checkpoint — 2026-10-14: implemented `The Midnight Ride` using three distinct carousel-horse targets, persistent per-horse feedback, visible and accessible progress, two timed hints, and an eight-second replayable sequence. The story adds orbiting practical lights, golden horseshoe paths, a final ride medallion, two local CC0 effects, cross-story interaction locking, shared pause behavior, and a reduced-motion presentation. The running preview returned HTTP 200 for HTML, CSS, JavaScript, and both new MP3 files with correct MIME types; static checks confirmed three targets, twelve ring lights, three horseshoe effects, the eight-second finish timer, cross-story guards, and the reduced-motion branch. Browser review remains open.
+
+Story 2 review — 2026-10-14: Developer responded “很好，继续” and requested the next checkpoint without revision, approving the current target placement, pacing, motion, and sound balance.
+
+Story 3 checkpoint — 2026-10-14: implemented `The Moonlit Beacon` as a forgiving ordered discovery across crow, lantern, and post targets followed by an eight-second replayable sequence. It adds persistent moonlit progress, non-resetting out-of-order guidance, lamp beam, crow flight, seven drifting feathers, final beacon seal, three verified local CC0 effects, cross-story locking, shared pause behavior, and a reduced-motion presentation. The running preview returned HTTP 200 for HTML, CSS, JavaScript, and all three new MP3 files with correct MIME types; static checks confirmed three ordered targets, three progress marks, seven feathers, the eight-second finish timer, and the reduced-motion branch. A Windows headless capture again enforced a wider minimum layout viewport, so direct Browser Preview review of the interaction and phone framing remains open.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 

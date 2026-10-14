@@ -71,6 +71,13 @@ Start a fresh chat with:
 - The eight-second reveal uses `Wild Horses Galopp` by D4XX, a 9.339-second digital mix made from individual gallop recordings and released under CC0. Source: https://freesound.org/people/D4XX/sounds/564626/
 - Public high-quality MP3 previews are stored locally as `assets/audio/wind-up-breviceps-445966.mp3` and `assets/audio/wild-horses-d4xx-564626.mp3`.
 
+### Third story sound effects — 2026-10-14
+
+- The crow signal uses `Crow Caw` by Jofae, a 0.432-second field recording of one short crow call released under CC0. Source: https://freesound.org/people/Jofae/sounds/361470/
+- The lantern and post signals use `Light Switch (on/off)` by Breviceps, a 0.597-second Zoom H2n recording explicitly dedicated to the public domain under CC0. Source: https://freesound.org/people/Breviceps/sounds/457037/
+- The story flight uses `Wings flapping.mp3` by DigPro120, a 5.996-second created effect made with an umbrella, recorded on a Zoom H2n, edited in GarageBand, and released under CC0. Source: https://freesound.org/people/DigPro120/sounds/395242/
+- Public high-quality MP3 previews are stored locally as `assets/audio/crow-caw-jofae-361470.mp3`, `assets/audio/light-switch-breviceps-457037.mp3`, and `assets/audio/wings-flapping-digpro120-395242.mp3`.
+
 Record only what informs the next build decisions:
 
 - creative alternatives for the scene, stories, and audiovisual direction, with reasons for your choices

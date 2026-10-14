@@ -87,6 +87,26 @@
             <span class="medallion-star">★</span>
             <span><strong>Midnight</strong><small>Ride</small></span>
           </div>
+          <div class="lamp-story-glow story-animated"></div>
+          <div class="lamp-beam story-animated"></div>
+          <div class="crow-flight story-animated" aria-hidden="true">
+            <span class="crow-wing crow-wing--left story-animated"></span>
+            <span class="crow-body"></span>
+            <span class="crow-wing crow-wing--right story-animated"></span>
+          </div>
+          <div class="moon-feather-field" aria-hidden="true">
+            <span class="moon-feather moon-feather--1 story-animated"></span>
+            <span class="moon-feather moon-feather--2 story-animated"></span>
+            <span class="moon-feather moon-feather--3 story-animated"></span>
+            <span class="moon-feather moon-feather--4 story-animated"></span>
+            <span class="moon-feather moon-feather--5 story-animated"></span>
+            <span class="moon-feather moon-feather--6 story-animated"></span>
+            <span class="moon-feather moon-feather--7 story-animated"></span>
+          </div>
+          <div class="beacon-seal story-animated">
+            <span class="beacon-crescent"></span>
+            <span><strong>Moonlit</strong><small>Beacon</small></span>
+          </div>
         </div>
         <div class="fog fog-front ambient"></div>
 
@@ -103,7 +123,9 @@
         <button class="scene-target carousel-horse carousel-horse--left" type="button" tabindex="-1" data-carousel-horse="left" aria-label="Left carousel horse, not found"></button>
         <button class="scene-target carousel-horse carousel-horse--center" type="button" tabindex="-1" data-carousel-horse="center" aria-label="Center carousel horse, not found"></button>
         <button class="scene-target carousel-horse carousel-horse--right" type="button" tabindex="-1" data-carousel-horse="right" aria-label="Right carousel horse, not found"></button>
-        <button class="scene-target scene-target--lamp" type="button" tabindex="-1" data-target="lamp" aria-label="Crow on the lamp" disabled></button>
+        <button class="scene-target lamp-step lamp-step--crow" type="button" tabindex="-1" data-lamp-step="crow" aria-label="Crow above the lamp, first signal"></button>
+        <button class="scene-target lamp-step lamp-step--lantern" type="button" tabindex="-1" data-lamp-step="lantern" aria-label="Lamp lantern, second signal"></button>
+        <button class="scene-target lamp-step lamp-step--post" type="button" tabindex="-1" data-lamp-step="post" aria-label="Lamp post, third signal"></button>
         <div class="clue-meter is-hidden" id="booth-clue-meter" role="status" aria-live="polite" aria-label="Ticket booth clue progress: 0 of 3">
           <span class="clue-dot"></span><span class="clue-dot"></span><span class="clue-dot"></span>
           <span class="sr-only" id="clue-meter-copy">0 of 3 tickets found</span>
@@ -111,6 +133,10 @@
         <div class="clue-meter carousel-clue-meter is-hidden" id="carousel-clue-meter" role="status" aria-live="polite" aria-label="Carousel clue progress: 0 of 3">
           <span class="carousel-clue-dot"></span><span class="carousel-clue-dot"></span><span class="carousel-clue-dot"></span>
           <span class="sr-only" id="carousel-clue-copy">0 of 3 carousel horses found</span>
+        </div>
+        <div class="clue-meter lamp-clue-meter is-hidden" id="lamp-clue-meter" role="status" aria-live="polite" aria-label="Moonlit beacon progress: 0 of 3">
+          <span class="lamp-clue-dot"></span><span class="lamp-clue-dot"></span><span class="lamp-clue-dot"></span>
+          <span class="sr-only" id="lamp-clue-copy">0 of 3 beacon signals found</span>
         </div>
       </div>
 
@@ -158,6 +184,15 @@
     </audio>
     <audio id="gallop-audio" preload="auto">
       <source src="assets/audio/wild-horses-d4xx-564626.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="crow-audio" preload="auto">
+      <source src="assets/audio/crow-caw-jofae-361470.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="switch-audio" preload="auto">
+      <source src="assets/audio/light-switch-breviceps-457037.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="wings-audio" preload="auto">
+      <source src="assets/audio/wings-flapping-digpro120-395242.mp3" type="audio/mpeg" />
     </audio>
     <script src="app.js"></script>
   </body>
