@@ -35,7 +35,10 @@ Start or continue a fresh chat with:
 - [ ] Developer reviews Story 3's ordered targets, visual restraint, pacing, and sound balance in Browser Preview.
 - [x] Add visible developer and asset credits with pause-safe modal behavior.
 - [ ] Developer reviews the Credits layout and pause/resume behavior in Browser Preview.
-- [ ] Complete peer-playtesting notes, add the provided `debrief.md`, deploy to public HTTPS, and verify on a physical smartphone.
+- [x] Push the complete Git history and project files to a public GitHub repository.
+- [x] Deploy the current prototype to a public HTTPS URL with GitHub Pages.
+- [ ] Verify the public URL on a physical smartphone and record the device, browser, date, and results.
+- [ ] Complete peer-playtesting notes and add the course-provided `debrief.md` during the later Phase 2 workflow.
 
 Main risk: the center attraction and side discovery anchors must remain visually distinct on short and narrow phones. Verification uses representative viewport screenshots plus direct Developer review; this checkpoint does not claim physical-phone verification.
 
@@ -81,7 +84,9 @@ Story 3 checkpoint — 2026-10-14: implemented `The Moonlit Beacon` as a forgivi
 
 Story 3 interaction revision — 2026-10-14: Developer found the three-step crow, lantern, and post trigger too repetitive. The interaction now uses one large crow target that starts the complete story after a single activation. Ordered-step state, lamp/post targets, progress dots, error pulses, switch feedback, and related instructions were removed from the runtime while the eight-second sequence, replay, pause, cross-story locking, and reduced-motion behavior remain unchanged.
 
-Credits checkpoint — 2026-10-14: added explicit start-screen and persistent HUD access to an accessible Credits modal. It identifies the Developer, AI-assisted original artwork, custom code, Rye typeface, and every runtime audio asset with creator and direct source link. Opening it during play uses the shared pause controller, and closing it resumes only when it interrupted a running experience. Public deployment, physical-phone verification, peer-playtesting evidence, and the course-provided `debrief.md` remain outstanding.
+Credits checkpoint — 2026-10-14: added explicit start-screen and persistent HUD access to an accessible Credits modal. It identifies the Developer, AI-assisted original artwork, custom code, Rye typeface, and every runtime audio asset with creator and direct source link. Opening it during play uses the shared pause controller, and closing it resumes only when it interrupted a running experience. Physical-phone verification, peer-playtesting evidence, and the course-provided `debrief.md` remain outstanding.
+
+Phase 1 deployment — 2026-10-14: pushed the complete local `main` history to the public repository at `https://github.com/zehan-T/ai-footprint-calculator` and enabled GitHub Pages from the repository root. The Pages build completed successfully for commit `4eeafb8`, with HTTPS enforced at `https://zehan-t.github.io/ai-footprint-calculator/`. Direct requests returned HTTP 200 for the page, CSS, JavaScript, active background image, ambient music, and first-story sound. Physical-smartphone verification remains a Developer task and must not be marked complete until performed on the device.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
