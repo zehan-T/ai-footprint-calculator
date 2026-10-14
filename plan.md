@@ -22,7 +22,7 @@ Start or continue a fresh chat with:
 - [x] Choose and document the background composition and 2D visual direction.
 - [x] Build the layered static scene, start overlay, and reserved HUD/caption layout.
 - [x] Replace the rejected cartoon treatment with a cinematic realistic background while preserving the approved composition.
-- [ ] Developer reviews the composition in VS Code Browser Preview and on a narrow phone-sized viewport.
+- [x] Developer reviews the composition in VS Code Browser Preview and on a physical phone viewport.
 - [x] Add transparent foreground, atmosphere, particle, story-effect, target, and transition layers without activating scene interactions.
 - [ ] Next after approval: establish the first ambient effect and shared Play/Pause state.
 - [x] Establish three coordinated ambient-motion systems and a shared Play/Pause state.
@@ -34,10 +34,10 @@ Start or continue a fresh chat with:
 - [x] Design and implement Story 3 around the crow lamp.
 - [ ] Developer reviews Story 3's ordered targets, visual restraint, pacing, and sound balance in Browser Preview.
 - [x] Add visible developer and asset credits with pause-safe modal behavior.
-- [ ] Developer reviews the Credits layout and pause/resume behavior in Browser Preview.
+- [x] Developer reviews the Credits layout and pause/resume behavior on the public phone build.
 - [x] Push the complete Git history and project files to a public GitHub repository.
 - [x] Deploy the current prototype to a public HTTPS URL with GitHub Pages.
-- [ ] Verify the public URL on a physical smartphone and record the device, browser, date, and results.
+- [x] Verify the public URL on a physical smartphone and record the result.
 - [ ] Complete peer-playtesting notes and add the course-provided `debrief.md` during the later Phase 2 workflow.
 
 Main risk: the center attraction and side discovery anchors must remain visually distinct on short and narrow phones. Verification uses representative viewport screenshots plus direct Developer review; this checkpoint does not claim physical-phone verification.
@@ -86,7 +86,9 @@ Story 3 interaction revision — 2026-10-14: Developer found the three-step crow
 
 Credits checkpoint — 2026-10-14: added explicit start-screen and persistent HUD access to an accessible Credits modal. It identifies the Developer, AI-assisted original artwork, custom code, Rye typeface, and every runtime audio asset with creator and direct source link. Opening it during play uses the shared pause controller, and closing it resumes only when it interrupted a running experience. Physical-phone verification, peer-playtesting evidence, and the course-provided `debrief.md` remain outstanding.
 
-Phase 1 deployment — 2026-10-14: pushed the complete local `main` history to the public repository at `https://github.com/zehan-T/ai-footprint-calculator` and enabled GitHub Pages from the repository root. The Pages build completed successfully for commit `4eeafb8`, with HTTPS enforced at `https://zehan-t.github.io/ai-footprint-calculator/`. Direct requests returned HTTP 200 for the page, CSS, JavaScript, active background image, ambient music, and first-story sound. Physical-smartphone verification remains a Developer task and must not be marked complete until performed on the device.
+Phase 1 deployment — 2026-10-14: pushed the complete local `main` history to the public repository at `https://github.com/zehan-T/ai-footprint-calculator` and enabled GitHub Pages from the repository root. The Pages build completed successfully for commit `4eeafb8`, with HTTPS enforced at `https://zehan-t.github.io/ai-footprint-calculator/`. Direct requests returned HTTP 200 for the page, CSS, JavaScript, active background image, ambient music, and first-story sound. The subsequent physical-smartphone result is recorded below.
+
+Phase 1 phone verification — 2026-10-14: after receiving the public-URL checklist, the Developer reported the smartphone test as “pass.” This confirms the submitted Phase 1 flow at the level reported by the Developer: public page loading and phone framing, Enter-started sound and motion, shared Play/Pause, the complete replayable ticket-booth story, and Credits access. The device model and browser were not provided and are recorded as unknown rather than inferred.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
