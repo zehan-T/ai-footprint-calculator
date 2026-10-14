@@ -59,6 +59,13 @@ Acceptance checks:
 - Keep all three systems inside the shared ambient class so Play/Pause and reduced-motion settings control them together.
 - Keep the carousel and ticket-booth lighting fixed with no added pulse, blackout, or brightness animation. Instead, four paper tickets occasionally lift behind the booth glass, rotate through distinct paths, and settle out of sight. Ticket motion remains part of the shared ambient state and may later act as a discovery clue.
 
+### Ambient audio and shared pause — approved 2026-10-13
+
+- Load one quiet, local CC0 loop of crickets and low wind, but do not play it before the User presses Enter.
+- Enter starts the audio and ambient animation together. Play/Pause pauses and resumes both without resetting the audio position.
+- Keep the loop at a restrained default volume so it supports the scene without masking later story sounds.
+- If loading or autoplay fails, keep the visual experience usable and replace the scene hint with a polite live-region message that the midway is quiet tonight.
+
 Define only enough to build and verify the current direction:
 
 - the intended User experience and chosen scene, ambience, and story behavior

@@ -46,6 +46,12 @@ Start a fresh chat with:
 - Interface language now emphasizes adventure, magical surprises, lights, and shared secrets rather than restless spirits or a park that “remembers.”
 - Follow-up review found the first younger-audience version too bright. Version 2 lowers the overall exposure and orange highlight intensity while enlarging the existing left and right entrance pumpkins to approximately twice their previous size. The active asset is `assets/backgrounds/moonlight-midway-younger-v2.jpg`; version 1 remains available for comparison.
 
+### Ambient audio — 2026-10-13
+
+- Selected `night ambience` by Freesound user seth-m: a 3.604-second stereo recording of crickets and low wind that the author describes as seamlessly looping. Source: https://freesound.org/people/seth-m/sounds/275640/
+- The source page identifies the recording as Creative Commons Zero (CC0) and explicitly permits copying, modification, distribution, and performance without permission. License details were verified on 2026-10-13. Attribution is not required by CC0, but the project retains the creator and source credit.
+- The project stores Freesound's public high-quality MP3 preview locally as `assets/audio/night-ambience-seth-m-275640.mp3` (about 86 KB), avoiding a runtime network dependency. Its short duration keeps mobile loading light; the trade-off is that the ambience must remain quiet enough that repetition is not distracting.
+
 Record only what informs the next build decisions:
 
 - creative alternatives for the scene, stories, and audiovisual direction, with reasons for your choices

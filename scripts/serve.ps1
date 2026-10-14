@@ -31,6 +31,9 @@ try {
         ".png" { "image/png" }
         ".jpg" { "image/jpeg" }
         ".jpeg" { "image/jpeg" }
+        ".mp3" { "audio/mpeg" }
+        ".ogg" { "audio/ogg" }
+        ".wav" { "audio/wav" }
         default { "application/octet-stream" }
       }
       $bytes = [System.IO.File]::ReadAllBytes($requestedPath)

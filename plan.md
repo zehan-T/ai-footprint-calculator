@@ -26,7 +26,8 @@ Start or continue a fresh chat with:
 - [x] Add transparent foreground, atmosphere, particle, story-effect, target, and transition layers without activating scene interactions.
 - [ ] Next after approval: establish the first ambient effect and shared Play/Pause state.
 - [x] Establish three coordinated ambient-motion systems and a shared Play/Pause state.
-- [ ] Next: source and verify CC0/public-domain ambient audio, then connect it to Enter and the shared pause state.
+- [x] Source and verify CC0/public-domain ambient audio, then connect it to Enter and the shared pause state.
+- [ ] Next: design and implement the first 5–10 second audiovisual story and its discoverable trigger.
 
 Main risk: the center attraction and side discovery anchors must remain visually distinct on short and narrow phones. Verification uses representative viewport screenshots plus direct Developer review; this checkpoint does not claim physical-phone verification.
 
@@ -51,6 +52,8 @@ Ambience revision — 2026-10-13: expanded the falling-leaf system from five to 
 Ambience correction — 2026-10-13: removed the carousel halo, bulb strip, and breathing keyframes completely. The carousel now remains visually fixed. A positioned ticket-booth window overlay instead creates one short blackout cluster in an 11.2-second cycle and remains connected to shared pause/reduced-motion control.
 
 Ambience correction — 2026-10-13: Developer rejected the ticket-booth blackout and selected windblown paper tickets. The blackout overlay and keyframes were removed. Four small paper tickets now appear intermittently behind the booth window, rise and rotate on staggered paths, then settle out of view; booth and carousel lighting remain fixed.
+
+Ambient-audio checkpoint — 2026-10-13: added a local 86 KB CC0 loop of crickets and low wind, sourced and documented from Freesound. Enter begins playback at 18% volume; the shared Play/Pause control pauses and resumes it without resetting. A load/playback failure leaves the visuals running and reports a quiet-night fallback through the existing live caption. The refreshed local preview returned HTTP 200 for both page and MP3, served the file as `audio/mpeg`, and exposed the expected loop and control wiring. This environment has no Node runtime or controllable browser automation, so Developer verification that audio begins only after Enter and follows two Pause/Resume cycles remains open in Browser Preview.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
