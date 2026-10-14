@@ -96,6 +96,12 @@ Acceptance checks:
 - Provide timed hints at 13 and 23 seconds if untouched. Global Play/Pause must freeze and resume story motion, audio, timing, hints, and interactions as one state.
 - With reduced motion enabled, replace the flight, feathers, and moving beam with a stationary lamp glow and seal while retaining the narrative timing, sound, one-click trigger, and replay behavior.
 
+### Credits and final integration — implemented for review 2026-10-14
+
+- Provide a clearly labeled Credits control on the start screen and a persistent information control in the scene HUD. Both open the same keyboard-accessible modal without changing pages.
+- Credit zehan-T for concept, direction, development, and testing; identify AI-assisted original background production and custom code; credit the Rye typeface and every runtime audio asset with its creator, license category, and direct source link.
+- Opening Credits during the experience must pause ambient motion, music, story audio, story timers, hint timers, and scene interaction through the existing shared pause state. Closing it resumes only if the experience was playing before the modal opened.
+
 Define only enough to build and verify the current direction:
 
 - the intended User experience and chosen scene, ambience, and story behavior

@@ -33,7 +33,9 @@ Start or continue a fresh chat with:
 - [x] Developer reviews Story 2's target placement, pacing, motion, and sound balance in Browser Preview.
 - [x] Design and implement Story 3 around the crow lamp.
 - [ ] Developer reviews Story 3's ordered targets, visual restraint, pacing, and sound balance in Browser Preview.
-- [ ] Next after approval: perform final integration, add visible credits, and verify all brief requirements.
+- [x] Add visible developer and asset credits with pause-safe modal behavior.
+- [ ] Developer reviews the Credits layout and pause/resume behavior in Browser Preview.
+- [ ] Complete peer-playtesting notes, add the provided `debrief.md`, deploy to public HTTPS, and verify on a physical smartphone.
 
 Main risk: the center attraction and side discovery anchors must remain visually distinct on short and narrow phones. Verification uses representative viewport screenshots plus direct Developer review; this checkpoint does not claim physical-phone verification.
 
@@ -78,6 +80,8 @@ Story 2 review — 2026-10-14: Developer responded “很好，继续” and req
 Story 3 checkpoint — 2026-10-14: implemented `The Moonlit Beacon` as a forgiving ordered discovery across crow, lantern, and post targets followed by an eight-second replayable sequence. It adds persistent moonlit progress, non-resetting out-of-order guidance, lamp beam, crow flight, seven drifting feathers, final beacon seal, three verified local CC0 effects, cross-story locking, shared pause behavior, and a reduced-motion presentation. The running preview returned HTTP 200 for HTML, CSS, JavaScript, and all three new MP3 files with correct MIME types; static checks confirmed three ordered targets, three progress marks, seven feathers, the eight-second finish timer, and the reduced-motion branch. A Windows headless capture again enforced a wider minimum layout viewport, so direct Browser Preview review of the interaction and phone framing remains open.
 
 Story 3 interaction revision — 2026-10-14: Developer found the three-step crow, lantern, and post trigger too repetitive. The interaction now uses one large crow target that starts the complete story after a single activation. Ordered-step state, lamp/post targets, progress dots, error pulses, switch feedback, and related instructions were removed from the runtime while the eight-second sequence, replay, pause, cross-story locking, and reduced-motion behavior remain unchanged.
+
+Credits checkpoint — 2026-10-14: added explicit start-screen and persistent HUD access to an accessible Credits modal. It identifies the Developer, AI-assisted original artwork, custom code, Rye typeface, and every runtime audio asset with creator and direct source link. Opening it during play uses the shared pause controller, and closing it resumes only when it interrupted a running experience. Public deployment, physical-phone verification, peer-playtesting evidence, and the course-provided `debrief.md` remain outstanding.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 

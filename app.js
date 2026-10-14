@@ -18,6 +18,9 @@ const carouselClueMarkers = [...carouselClueMeter.querySelectorAll(".carousel-cl
 const experience = document.querySelector(".experience");
 const pauseButton = document.querySelector("#pause-button");
 const pauseIcon = pauseButton.querySelector(".pause-icon");
+const creditsDialog = document.querySelector("#credits-dialog");
+const creditsOpenButtons = [...document.querySelectorAll(".credits-open-button")];
+const creditsCloseButton = document.querySelector("#credits-close-button");
 const ambientAudio = document.querySelector("#ambient-audio");
 const musicAudio = document.querySelector("#music-audio");
 const ticketAudio = document.querySelector("#ticket-audio");
@@ -30,6 +33,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let experienceStarted = false;
 let experiencePaused = false;
+let resumeAfterCredits = false;
 let boothProgress = 0;
 let boothStoryPlaying = false;
 let boothStoryCompleted = false;
@@ -221,6 +225,16 @@ function setExperiencePaused(paused) {
   document.dispatchEvent(new CustomEvent("experiencepausechange", {
     detail: { paused }
   }));
+}
+
+function openCredits() {
+  resumeAfterCredits = experienceStarted && !experiencePaused;
+  if (resumeAfterCredits) setExperiencePaused(true);
+  creditsDialog.showModal();
+}
+
+function closeCredits() {
+  creditsDialog.close();
 }
 
 function updateBoothProgress() {
@@ -531,6 +545,18 @@ enterButton.addEventListener("click", () => {
 
 pauseButton.addEventListener("click", () => {
   setExperiencePaused(!experiencePaused);
+});
+
+creditsOpenButtons.forEach((button) => {
+  button.addEventListener("click", openCredits);
+});
+creditsCloseButton.addEventListener("click", closeCredits);
+creditsDialog.addEventListener("close", () => {
+  if (resumeAfterCredits) setExperiencePaused(false);
+  resumeAfterCredits = false;
+});
+creditsDialog.addEventListener("click", (event) => {
+  if (event.target === creditsDialog) closeCredits();
 });
 
 boothButton.addEventListener("click", handleBoothDiscovery);

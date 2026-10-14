@@ -135,7 +135,7 @@
       </div>
 
       <header class="hud is-hidden" id="scene-hud">
-        <div class="brand-mark" aria-label="Moonlight Midway">MM</div>
+        <button class="brand-mark credits-open-button" type="button" aria-label="View credits" title="Credits">ⓘ</button>
         <p id="hud-hint">Three surprises glow in the midway</p>
         <button class="pause-button" id="pause-button" type="button" aria-label="Pause experience" aria-pressed="false" disabled>
           <span class="pause-icon" aria-hidden="true">Ⅱ</span>
@@ -151,6 +151,7 @@
           <span aria-hidden="true">→</span>
         </button>
         <p class="audio-note">Sound begins after you enter</p>
+        <button class="start-credits-button credits-open-button" type="button">Credits</button>
       </section>
 
       <div class="scene-caption is-hidden" id="scene-caption" role="status" aria-live="polite">
@@ -161,6 +162,46 @@
 
       <div class="transition-curtain" id="transition-curtain" aria-hidden="true"></div>
     </main>
+
+    <dialog class="credits-dialog" id="credits-dialog" aria-labelledby="credits-title">
+      <div class="credits-heading">
+        <div>
+          <p>Moonlight Midway</p>
+          <h2 id="credits-title">Credits</h2>
+        </div>
+        <button class="credits-close-button" id="credits-close-button" type="button" aria-label="Close credits">×</button>
+      </div>
+      <div class="credits-scroll">
+        <section>
+          <h3>Created by</h3>
+          <p><strong>zehan-T</strong> — concept, creative direction, development, and testing.</p>
+          <p>Custom HTML, CSS, and JavaScript developed with OpenAI Codex.</p>
+        </section>
+        <section>
+          <h3>Visuals and type</h3>
+          <p>Original background artwork directed by zehan-T and developed with OpenAI image generation.</p>
+          <p><a href="https://github.com/google/fonts/tree/main/ofl/rye" target="_blank" rel="noopener noreferrer">Rye typeface</a> — Font Bureau, SIL Open Font License 1.1.</p>
+        </section>
+        <section>
+          <h3>Music and ambience · CC0</h3>
+          <ul>
+            <li><a href="https://freesound.org/people/seth-m/sounds/275640/" target="_blank" rel="noopener noreferrer">Night ambience</a> — seth-m</li>
+            <li><a href="https://freesound.org/people/MusicByMisterbates/sounds/677436/" target="_blank" rel="noopener noreferrer">Spooky Halloween</a> — MusicByMisterbates</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Story sounds · CC0</h3>
+          <ul>
+            <li><a href="https://freesound.org/people/Licorne_En_Fer/sounds/772976/" target="_blank" rel="noopener noreferrer">Ticket machine</a> — Licorne_En_Fer</li>
+            <li><a href="https://freesound.org/people/newagesoup/sounds/351408/" target="_blank" rel="noopener noreferrer">Gleam chime</a> — newagesoup</li>
+            <li><a href="https://freesound.org/people/Breviceps/sounds/445966/" target="_blank" rel="noopener noreferrer">Wind-up sound</a> — Breviceps</li>
+            <li><a href="https://freesound.org/people/D4XX/sounds/564626/" target="_blank" rel="noopener noreferrer">Wild Horses Galopp</a> — D4XX</li>
+            <li><a href="https://freesound.org/people/Jofae/sounds/361470/" target="_blank" rel="noopener noreferrer">Crow Caw</a> — Jofae</li>
+            <li><a href="https://freesound.org/people/DigPro120/sounds/395242/" target="_blank" rel="noopener noreferrer">Wings flapping</a> — DigPro120</li>
+          </ul>
+        </section>
+      </div>
+    </dialog>
     <audio id="ambient-audio" preload="auto" loop>
       <source src="assets/audio/night-ambience-seth-m-275640.mp3" type="audio/mpeg" />
     </audio>
