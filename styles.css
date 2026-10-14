@@ -57,9 +57,8 @@ button { font: inherit; }
 .firefly { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #fff2a6; box-shadow: 0 0 5px 2px #ffd45f, 0 0 13px 4px #f6a62c7d; animation: firefly-drift var(--fly-duration, 4s) ease-in-out var(--fly-delay, 0s) infinite alternate; }
 .firefly--1 { left: 12%; top: 58%; --fly-duration: 4.2s; --fly-delay: -1s; }.firefly--2 { left: 21%; top: 72%; --fly-duration: 5.1s; --fly-delay: -3s; }.firefly--3 { left: 29%; top: 43%; --fly-duration: 3.8s; --fly-delay: -2.2s; }.firefly--4 { left: 76%; top: 48%; --fly-duration: 4.7s; --fly-delay: -1.8s; }.firefly--5 { left: 84%; top: 67%; --fly-duration: 5.4s; --fly-delay: -4s; }.firefly--6 { left: 92%; top: 39%; --fly-duration: 3.6s; --fly-delay: -2.7s; }.firefly--7 { left: 38%; top: 78%; --fly-duration: 4.5s; --fly-delay: -3.5s; transform: scale(.7); }.firefly--8 { left: 68%; top: 80%; --fly-duration: 5.8s; --fly-delay: -.8s; transform: scale(.65); }
 .ambient-light { position: absolute; z-index: 3; pointer-events: none; mix-blend-mode: screen; }
-.ambient-light--carousel { left: 13%; top: 38%; width: 76%; height: 30%; background: radial-gradient(ellipse, #ffb44d42 0 28%, #df7f2820 48%, transparent 73%); filter: blur(5px); animation: carousel-breathe 4.2s ease-in-out infinite; }
-.ambient-light--carousel::before { content: ""; position: absolute; top: 25%; left: 5%; right: 5%; height: 14px; background: radial-gradient(circle, #fff0bc 0 1.5px, #e99b3c 2.5px, transparent 5px) left center / 28px 14px repeat-x; filter: drop-shadow(0 0 3px #dc8b31); }
 .ambient-light--lamp { right: -2%; top: 29%; width: 27%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #d7ee8e5e 0 13%, #a8c46b30 33%, transparent 70%); filter: blur(3px); animation: lamp-flicker 8.6s steps(1, end) infinite; }
+.ticket-booth-blackout { position: absolute; z-index: 4; left: 3%; top: 49.5%; width: 22%; height: 14%; border-radius: 3px 3px 7px 7px; clip-path: polygon(9% 0, 88% 0, 100% 100%, 0 100%); background: linear-gradient(180deg, #03060af5, #020306e8); mix-blend-mode: multiply; opacity: 0; pointer-events: none; animation: ticket-booth-blackout 11.2s steps(1, end) infinite; }
 .story-effects { z-index: 5; inset: 0; pointer-events: none; }
 .foreground-silhouette { z-index: 7; inset: 0; width: 100%; height: 100%; pointer-events: none; filter: drop-shadow(0 4px 8px #000); }
 .branch { fill: none; stroke: #101024; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; opacity: .28; }
@@ -122,15 +121,16 @@ button { font: inherit; }
   100% { transform: translate3d(-4px, -28px, 0) scale(.8); opacity: .25; }
 }
 
-@keyframes carousel-breathe {
-  0%, 100% { opacity: .28; transform: scale(.98); filter: brightness(.85); }
-  50% { opacity: .72; transform: scale(1.025); filter: brightness(1.12); }
-}
-
 @keyframes lamp-flicker {
   0%, 59%, 64%, 82%, 87%, 100% { opacity: .86; transform: scale(1); }
   60%, 62%, 83%, 85% { opacity: .18; transform: scale(.93); }
   61%, 63%, 84%, 86% { opacity: 1; transform: scale(1.06); }
+}
+
+@keyframes ticket-booth-blackout {
+  0%, 62%, 72%, 100% { opacity: 0; }
+  63%, 69%, 71% { opacity: .96; }
+  70% { opacity: .28; }
 }
 
 .start-screen {

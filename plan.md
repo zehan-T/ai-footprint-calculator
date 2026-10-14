@@ -48,6 +48,8 @@ Revision — 2026-10-13: the first younger version was judged too bright and its
 
 Ambience revision — 2026-10-13: expanded the falling-leaf system from five to nine varied leaves, changed the lamp from a short repetitive pulse to two brief flicker clusters in an 8.6-second cycle, and added eight independent fireflies around the enlarged pumpkin groups. Manual review should confirm that all three read clearly after Enter and freeze together on Pause.
 
+Ambience correction — 2026-10-13: removed the carousel halo, bulb strip, and breathing keyframes completely. The carousel now remains visually fixed. A positioned ticket-booth window overlay instead creates one short blackout cluster in an 11.2-second cycle and remains connected to shared pause/reduced-motion control.
+
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
 Test each result before continuing, including related behavior that already works. Update priorities as evidence emerges and preserve meaningful working checkpoints in git. Before delivery, verify the deployed app against the brief and specification.
