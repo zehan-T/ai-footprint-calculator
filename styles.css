@@ -36,13 +36,13 @@ button { font: inherit; }
 .scene > * { position: absolute; }
 .scene { inset: 0; overflow: hidden; }
 .scene-background { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
-.scene-grade { z-index: 1; inset: 0; background: linear-gradient(180deg, #05101f59 0%, transparent 28%, transparent 66%, #030407db 100%); }
+.scene-grade { z-index: 1; inset: 0; background: linear-gradient(180deg, #07163240 0%, transparent 29%, transparent 67%, #070612b8 100%); }
 .effects-layer { z-index: 2; inset: 0; overflow: hidden; pointer-events: none; }
 .effects-layer--particles { z-index: 4; }
-.cloud-veil { position: absolute; width: 78%; height: 22%; border-radius: 50%; background: #b9c4d1; filter: blur(28px); opacity: .095; }
+.cloud-veil { position: absolute; width: 78%; height: 22%; border-radius: 50%; background: #c9c8ee; filter: blur(28px); opacity: .075; }
 .cloud-veil--left { top: 21%; left: -37%; transform: rotate(8deg); }
 .cloud-veil--right { top: 34%; right: -42%; transform: rotate(-11deg); }
-.fog { position: absolute; z-index: 2; left: -28%; width: 156%; border-radius: 50%; background: radial-gradient(ellipse at 18% 52%, #d2d7dd 0 10%, transparent 34%), radial-gradient(ellipse at 52% 48%, #c1c8d0 0 15%, transparent 42%), radial-gradient(ellipse at 84% 58%, #d8dde2 0 9%, transparent 32%); filter: blur(13px); opacity: .24; pointer-events: none; }
+.fog { position: absolute; z-index: 2; left: -28%; width: 156%; border-radius: 50%; background: radial-gradient(ellipse at 18% 52%, #ddd9f3 0 10%, transparent 34%), radial-gradient(ellipse at 52% 48%, #c8d8e9 0 15%, transparent 42%), radial-gradient(ellipse at 84% 58%, #eadcf1 0 9%, transparent 32%); filter: blur(13px); opacity: .2; pointer-events: none; }
 .fog-back { height: 18%; bottom: 20%; animation-duration: 14s; }
 .fog-front { z-index: 6; height: 16%; bottom: 3%; opacity: .28; animation-duration: 10s; }
 .mote { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #ffd38b; box-shadow: 0 0 11px 2px #e5a94f; opacity: .72; }
@@ -55,9 +55,9 @@ button { font: inherit; }
 .ambient-light--lamp { right: -2%; top: 29%; width: 27%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #d7ee8e5e 0 13%, #a8c46b30 33%, transparent 70%); filter: blur(3px); animation: lamp-flicker 3.7s steps(1, end) infinite; }
 .story-effects { z-index: 5; inset: 0; pointer-events: none; }
 .foreground-silhouette { z-index: 7; inset: 0; width: 100%; height: 100%; pointer-events: none; filter: drop-shadow(0 4px 8px #000); }
-.branch { fill: none; stroke: #030406; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; opacity: .58; }
-.foreground-grass { fill: none; stroke: #020304; stroke-width: 9; stroke-linecap: round; }
-.vignette { z-index: 8; inset: 0; pointer-events: none; box-shadow: inset 0 0 100px 20px #0203079e; }
+.branch { fill: none; stroke: #101024; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; opacity: .28; }
+.foreground-grass { fill: none; stroke: #080813; stroke-width: 8; stroke-linecap: round; opacity: .62; }
+.vignette { z-index: 8; inset: 0; pointer-events: none; box-shadow: inset 0 0 88px 14px #08051963; }
 .interaction-layer { position: absolute; z-index: 9; inset: 0; transition: opacity .35s ease; pointer-events: none; }
 .scene-target { position: absolute; border: 0; background: transparent; pointer-events: none; }
 .scene-target--booth { left: 0; bottom: 20%; width: 30%; height: 43%; }
@@ -127,7 +127,7 @@ button { font: inherit; }
   align-items: center;
   padding: max(8svh, calc(env(safe-area-inset-top) + 32px)) 24px max(27px, env(safe-area-inset-bottom));
   text-align: center;
-  background: linear-gradient(180deg, #030915a8 0%, transparent 31%, transparent 61%, #020306ed 91%);
+  background: linear-gradient(180deg, #07132f82 0%, transparent 31%, transparent 61%, #090516d6 91%);
   transition: opacity .45s ease, visibility .45s;
 }
 .start-screen.is-exiting { opacity: 0; visibility: hidden; }

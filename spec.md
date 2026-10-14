@@ -45,6 +45,12 @@ Acceptance checks:
 - The persistent Play/Pause control freezes and resumes every ambient animation together and updates its icon, accessible label, and pressed state. It also emits one shared `experiencepausechange` event for later audio, story timers, and interaction systems.
 - If `prefers-reduced-motion: reduce` is active, keep all ambient layers static from the beginning; the scene and controls remain usable.
 
+### Younger-audience variant — approved 2026-10-13
+
+- Broaden the presentation toward approximately ages 7–10 while retaining the approved location, composition, realistic medium, and discovery structure.
+- Favor magical mystery over threat: brighter moonlit color, warm practical lights, maintained surfaces, gentle mist, autumn decorations, and reassuring invitation language.
+- Avoid menacing figures, hostile expressions, severe decay, oppressive darkness, frightening language, gore, violence, and realistic suffering.
+
 Define only enough to build and verify the current direction:
 
 - the intended User experience and chosen scene, ambience, and story behavior

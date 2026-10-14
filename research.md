@@ -38,6 +38,13 @@ Start a fresh chat with:
 - The title now uses Rye, a decorative serif display face with an aged carnival-poster character, self-hosted from the [Google Fonts repository](https://github.com/google/fonts/tree/main/ofl/rye).
 - Rye is distributed under the SIL Open Font License 1.1; the repository includes the license at `assets/fonts/rye/OFL.txt`. It is limited to the main title so body copy and controls remain highly readable.
 
+### Younger-audience visual variant — 2026-10-13
+
+- Developer requested a version that preserves the Moonlight Midway concept while feeling appropriate for children younger than the original 10+ target.
+- The selected treatment remains cinematic and materially realistic, but changes the emotional cues: a brighter blue-violet sky, maintained attractions, warm autumn foliage, friendly pumpkin lanterns, golden firefly lights, thinner magical mist, and reduced decay and threatening shadow.
+- The new original AI-edited asset is `assets/backgrounds/moonlight-midway-younger-v1.jpg`. The previous darker asset remains at `assets/backgrounds/moonlight-midway-realistic-v1.jpg` as a recoverable alternate.
+- Interface language now emphasizes adventure, magical surprises, lights, and shared secrets rather than restless spirits or a park that “remembers.”
+
 Record only what informs the next build decisions:
 
 - creative alternatives for the scene, stories, and audiovisual direction, with reasons for your choices
