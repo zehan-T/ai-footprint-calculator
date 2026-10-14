@@ -56,7 +56,7 @@ Start a fresh chat with:
 
 - Developer approved the ambience volume but requested a more recognizably Halloween musical layer. Selected `Spooky Halloween Soundtrack` by MusicByMisterbates, an original 56.489-second multi-instrument track. Source: https://freesound.org/people/MusicByMisterbates/sounds/677436/
 - The source page marks the track Creative Commons Zero (CC0), permitting copying, modification, distribution, and performance. The author also asks users to identify the work as `Misterbates — Spooky Halloween`; the project will preserve that voluntary credit.
-- The public high-quality MP3 preview is stored locally as `assets/audio/spooky-halloween-misterbates-677436.mp3` (about 1.25 MiB). It plays beneath the interface at 9% volume while the cricket-and-wind layer is reduced from 18% to 14%, keeping the combined mix restrained.
+- The public high-quality MP3 preview is stored locally as `assets/audio/spooky-halloween-misterbates-677436.mp3` (about 1.25 MiB). After listening review, the music plays at 13% volume and the cricket-and-wind layer at 18%, making the combined mix fuller while retaining headroom for later story sounds.
 
 Record only what informs the next build decisions:
 

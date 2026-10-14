@@ -57,6 +57,8 @@ Ambient-audio checkpoint — 2026-10-13: added a local 86 KB CC0 loop of cricket
 
 Audio revision — 2026-10-14: Developer approved the initial ambience volume but requested clearer Halloween character. Added a second local CC0 track, `Misterbates — Spooky Halloween`, at 9% volume and reduced the cricket-and-wind layer to 14% to preserve a restrained combined mix. The shared audio controller now starts, pauses, and resumes both tracks and tolerates either source failing independently. The running preview returned HTTP 200 and `audio/mpeg` for both local tracks, and static checks confirmed both are wired into shared start/pause/resume control. Developer listening review remains open.
 
+Mix revision — 2026-10-14: Developer requested a louder overall mix. Raised ambience from 14% to 18% and music from 9% to 13%, preserving the established balance while retaining headroom for later story effects.
+
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
 Test each result before continuing, including related behavior that already works. Update priorities as evidence emerges and preserve meaningful working checkpoints in git. Before delivery, verify the deployed app against the brief and specification.

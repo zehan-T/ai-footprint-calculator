@@ -15,8 +15,8 @@ let experienceStarted = false;
 let experiencePaused = false;
 const unavailableAudio = new Set();
 const audioTracks = [
-  { element: ambientAudio, volume: 0.14 },
-  { element: musicAudio, volume: 0.09 }
+  { element: ambientAudio, volume: 0.18 },
+  { element: musicAudio, volume: 0.13 }
 ];
 
 audioTracks.forEach(({ element, volume }) => {
