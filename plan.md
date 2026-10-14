@@ -44,6 +44,8 @@ Revision: the corrected carousel pulse was judged too prominent. Its halo opacit
 
 Revision — 2026-10-13: Developer requested a younger-audience version. A brighter family-fantasy background and gentler interface language replaced the darker default without deleting the prior asset. The next review should confirm that the result feels safe and inviting without becoming cartoonish.
 
+Revision — 2026-10-13: the first younger version was judged too bright and its pumpkins too small. A second non-destructive background version reduces scene exposure and warm-light clipping while enlarging the two entrance pumpkin groups; composition and interface layout remain unchanged.
+
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
 Test each result before continuing, including related behavior that already works. Update priorities as evidence emerges and preserve meaningful working checkpoints in git. Before delivery, verify the deployed app against the brief and specification.

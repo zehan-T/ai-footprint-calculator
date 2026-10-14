@@ -44,6 +44,7 @@ Start a fresh chat with:
 - The selected treatment remains cinematic and materially realistic, but changes the emotional cues: a brighter blue-violet sky, maintained attractions, warm autumn foliage, friendly pumpkin lanterns, golden firefly lights, thinner magical mist, and reduced decay and threatening shadow.
 - The new original AI-edited asset is `assets/backgrounds/moonlight-midway-younger-v1.jpg`. The previous darker asset remains at `assets/backgrounds/moonlight-midway-realistic-v1.jpg` as a recoverable alternate.
 - Interface language now emphasizes adventure, magical surprises, lights, and shared secrets rather than restless spirits or a park that “remembers.”
+- Follow-up review found the first younger-audience version too bright. Version 2 lowers the overall exposure and orange highlight intensity while enlarging the existing left and right entrance pumpkins to approximately twice their previous size. The active asset is `assets/backgrounds/moonlight-midway-younger-v2.jpg`; version 1 remains available for comparison.
 
 Record only what informs the next build decisions:
 
