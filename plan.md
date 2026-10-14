@@ -59,6 +59,8 @@ Audio revision — 2026-10-14: Developer approved the initial ambience volume bu
 
 Mix revision — 2026-10-14: Developer requested a louder overall mix. Raised ambience from 14% to 18% and music from 9% to 13%, preserving the established balance while retaining headroom for later story effects.
 
+Physical-phone preview — 2026-10-14: added `scripts/serve-lan.ps1`, a local-network preview server that binds without administrator-only HTTP.sys registration and supports byte-range audio requests. The current Wi-Fi URL returned HTTP 200 for the page and HTTP 206 with the correct `Content-Range` for a music request. Direct Developer verification on the phone remains open and requires the phone and computer to share the same Wi-Fi network.
+
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
 Test each result before continuing, including related behavior that already works. Update priorities as evidence emerges and preserve meaningful working checkpoints in git. Before delivery, verify the deployed app against the brief and specification.
