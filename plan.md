@@ -46,6 +46,8 @@ Revision — 2026-10-13: Developer requested a younger-audience version. A brigh
 
 Revision — 2026-10-13: the first younger version was judged too bright and its pumpkins too small. A second non-destructive background version reduces scene exposure and warm-light clipping while enlarging the two entrance pumpkin groups; composition and interface layout remain unchanged.
 
+Ambience revision — 2026-10-13: expanded the falling-leaf system from five to nine varied leaves, changed the lamp from a short repetitive pulse to two brief flicker clusters in an 8.6-second cycle, and added eight independent fireflies around the enlarged pumpkin groups. Manual review should confirm that all three read clearly after Enter and freeze together on Pause.
+
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
 Test each result before continuing, including related behavior that already works. Update priorities as evidence emerges and preserve meaningful working checkpoints in git. Before delivery, verify the deployed app against the brief and specification.

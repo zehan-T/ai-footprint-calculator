@@ -51,6 +51,13 @@ Acceptance checks:
 - Favor magical mystery over threat: brighter moonlit color, warm practical lights, maintained surfaces, gentle mist, autumn decorations, and reassuring invitation language.
 - Avoid menacing figures, hostile expressions, severe decay, oppressive darkness, frightening language, gore, violence, and realistic suffering.
 
+### Younger-audience ambience — approved 2026-10-13
+
+- Show nine varied falling leaves crossing the upper and middle scene with staggered timing, size, and start positions.
+- Make the crow lamp hold a steady glow most of the time, interrupted by two brief irregular-looking flicker clusters in each long cycle.
+- Add a third distinct effect: eight warm fireflies gathering near the left and right pumpkin groups, moving slowly with independent brightness and paths.
+- Keep all three systems inside the shared ambient class so Play/Pause and reduced-motion settings control them together.
+
 Define only enough to build and verify the current direction:
 
 - the intended User experience and chosen scene, ambience, and story behavior
