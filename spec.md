@@ -57,7 +57,7 @@ Acceptance checks:
 - Make the crow lamp hold a steady glow most of the time, interrupted by two brief irregular-looking flicker clusters in each long cycle.
 - Add a third distinct effect: eight warm fireflies gathering near the left and right pumpkin groups, moving slowly with independent brightness and paths.
 - Keep all three systems inside the shared ambient class so Play/Pause and reduced-motion settings control them together.
-- Keep the carousel lighting fixed with no added pulse or brightness animation. Instead, the ticket-booth window should occasionally go nearly black for a short interval, briefly return partway, then restore its normal background light. This outage remains part of the shared ambient state.
+- Keep the carousel and ticket-booth lighting fixed with no added pulse, blackout, or brightness animation. Instead, four paper tickets occasionally lift behind the booth glass, rotate through distinct paths, and settle out of sight. Ticket motion remains part of the shared ambient state and may later act as a discovery clue.
 
 Define only enough to build and verify the current direction:
 

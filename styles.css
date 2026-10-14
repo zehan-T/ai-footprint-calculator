@@ -58,7 +58,10 @@ button { font: inherit; }
 .firefly--1 { left: 12%; top: 58%; --fly-duration: 4.2s; --fly-delay: -1s; }.firefly--2 { left: 21%; top: 72%; --fly-duration: 5.1s; --fly-delay: -3s; }.firefly--3 { left: 29%; top: 43%; --fly-duration: 3.8s; --fly-delay: -2.2s; }.firefly--4 { left: 76%; top: 48%; --fly-duration: 4.7s; --fly-delay: -1.8s; }.firefly--5 { left: 84%; top: 67%; --fly-duration: 5.4s; --fly-delay: -4s; }.firefly--6 { left: 92%; top: 39%; --fly-duration: 3.6s; --fly-delay: -2.7s; }.firefly--7 { left: 38%; top: 78%; --fly-duration: 4.5s; --fly-delay: -3.5s; transform: scale(.7); }.firefly--8 { left: 68%; top: 80%; --fly-duration: 5.8s; --fly-delay: -.8s; transform: scale(.65); }
 .ambient-light { position: absolute; z-index: 3; pointer-events: none; mix-blend-mode: screen; }
 .ambient-light--lamp { right: -2%; top: 29%; width: 27%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #d7ee8e5e 0 13%, #a8c46b30 33%, transparent 70%); filter: blur(3px); animation: lamp-flicker 8.6s steps(1, end) infinite; }
-.ticket-booth-blackout { position: absolute; z-index: 4; left: 3%; top: 49.5%; width: 22%; height: 14%; border-radius: 3px 3px 7px 7px; clip-path: polygon(9% 0, 88% 0, 100% 100%, 0 100%); background: linear-gradient(180deg, #03060af5, #020306e8); mix-blend-mode: multiply; opacity: 0; pointer-events: none; animation: ticket-booth-blackout 11.2s steps(1, end) infinite; }
+.ticket-flutter-field { position: absolute; z-index: 4; left: 4%; top: 49%; width: 21%; height: 16%; overflow: hidden; clip-path: polygon(8% 0, 88% 0, 100% 100%, 0 100%); pointer-events: none; }
+.ticket { position: absolute; bottom: -28%; width: 13px; height: 21px; border: 1px solid #9d773d; border-radius: 2px; background: linear-gradient(90deg, #e9d398 0 18%, #f7e8b7 18% 82%, #d7bd7c 82%); box-shadow: 0 2px 5px #120b04a8; opacity: 0; transform-origin: center; animation: ticket-flutter var(--ticket-duration, 11s) ease-in-out var(--ticket-delay, 0s) infinite; }
+.ticket::after { content: ""; position: absolute; inset: 5px 3px; border-top: 1px dashed #9b7238; border-bottom: 1px dashed #9b7238; opacity: .7; }
+.ticket--1 { left: 14%; --ticket-duration: 11.5s; --ticket-delay: -3.2s; }.ticket--2 { left: 38%; width: 11px; height: 18px; --ticket-duration: 13.2s; --ticket-delay: -8.4s; }.ticket--3 { left: 59%; --ticket-duration: 12.1s; --ticket-delay: -5.8s; }.ticket--4 { left: 73%; width: 10px; height: 17px; --ticket-duration: 14.4s; --ticket-delay: -11.1s; }
 .story-effects { z-index: 5; inset: 0; pointer-events: none; }
 .foreground-silhouette { z-index: 7; inset: 0; width: 100%; height: 100%; pointer-events: none; filter: drop-shadow(0 4px 8px #000); }
 .branch { fill: none; stroke: #101024; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; opacity: .28; }
@@ -127,10 +130,13 @@ button { font: inherit; }
   61%, 63%, 84%, 86% { opacity: 1; transform: scale(1.06); }
 }
 
-@keyframes ticket-booth-blackout {
-  0%, 62%, 72%, 100% { opacity: 0; }
-  63%, 69%, 71% { opacity: .96; }
-  70% { opacity: .28; }
+@keyframes ticket-flutter {
+  0%, 55% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+  59% { opacity: .82; }
+  69% { transform: translate3d(9px, -38px, 0) rotate(24deg); opacity: .94; }
+  80% { transform: translate3d(-7px, -71px, 0) rotate(-32deg); opacity: .9; }
+  90% { transform: translate3d(6px, -43px, 0) rotate(16deg); opacity: .76; }
+  96%, 100% { transform: translate3d(1px, -5px, 0) rotate(-4deg); opacity: 0; }
 }
 
 .start-screen {
