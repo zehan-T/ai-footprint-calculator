@@ -59,7 +59,23 @@
           <span class="ticket ticket--3 ambient"></span>
           <span class="ticket ticket--4 ambient"></span>
         </div>
-        <div class="story-effects" id="story-effects"></div>
+        <div class="story-effects" id="story-effects" aria-hidden="true">
+          <div class="booth-story-glow story-animated"></div>
+          <div class="story-ticket-field">
+            <span class="story-ticket story-ticket--1 story-animated"></span>
+            <span class="story-ticket story-ticket--2 story-animated"></span>
+            <span class="story-ticket story-ticket--3 story-animated"></span>
+            <span class="story-ticket story-ticket--4 story-animated"></span>
+            <span class="story-ticket story-ticket--5 story-animated"></span>
+            <span class="story-ticket story-ticket--6 story-animated"></span>
+            <span class="story-ticket story-ticket--7 story-animated"></span>
+            <span class="story-ticket story-ticket--8 story-animated"></span>
+          </div>
+          <div class="moon-pass story-animated">
+            <span class="pass-moon"></span>
+            <span class="pass-copy"><strong>Moonlight</strong><small>Admit one</small></span>
+          </div>
+        </div>
         <div class="fog fog-front ambient"></div>
 
         <svg class="foreground-silhouette" viewBox="0 0 390 844" preserveAspectRatio="none">
@@ -71,14 +87,18 @@
       </div>
 
       <div class="interaction-layer is-hidden" id="interaction-layer" aria-hidden="true">
-        <button class="scene-target scene-target--booth" type="button" tabindex="-1" data-target="booth" aria-label="Old ticket booth"></button>
-        <button class="scene-target scene-target--carousel" type="button" tabindex="-1" data-target="carousel" aria-label="Antique carousel"></button>
-        <button class="scene-target scene-target--lamp" type="button" tabindex="-1" data-target="lamp" aria-label="Crow on the lamp"></button>
+        <button class="scene-target scene-target--booth" type="button" tabindex="-1" data-target="booth" aria-label="Old ticket booth, 0 of 3 tickets found"></button>
+        <button class="scene-target scene-target--carousel" type="button" tabindex="-1" data-target="carousel" aria-label="Antique carousel" disabled></button>
+        <button class="scene-target scene-target--lamp" type="button" tabindex="-1" data-target="lamp" aria-label="Crow on the lamp" disabled></button>
+        <div class="clue-meter is-hidden" id="booth-clue-meter" role="status" aria-live="polite" aria-label="Ticket booth clue progress: 0 of 3">
+          <span class="clue-dot"></span><span class="clue-dot"></span><span class="clue-dot"></span>
+          <span class="sr-only" id="clue-meter-copy">0 of 3 tickets found</span>
+        </div>
       </div>
 
       <header class="hud is-hidden" id="scene-hud">
         <div class="brand-mark" aria-label="Moonlight Midway">MM</div>
-        <p>Three surprises glow in the midway</p>
+        <p id="hud-hint">Three surprises glow in the midway</p>
         <button class="pause-button" id="pause-button" type="button" aria-label="Pause experience" aria-pressed="false" disabled>
           <span class="pause-icon" aria-hidden="true">Ⅱ</span>
         </button>
@@ -108,6 +128,12 @@
     </audio>
     <audio id="music-audio" preload="auto" loop>
       <source src="assets/audio/spooky-halloween-misterbates-677436.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="ticket-audio" preload="auto">
+      <source src="assets/audio/ticket-print-licorne-en-fer-772976.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="chime-audio" preload="auto">
+      <source src="assets/audio/gleam-chime-newagesoup-351408.mp3" type="audio/mpeg" />
     </audio>
     <script src="app.js"></script>
   </body>

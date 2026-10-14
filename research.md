@@ -58,6 +58,12 @@ Start a fresh chat with:
 - The source page marks the track Creative Commons Zero (CC0), permitting copying, modification, distribution, and performance. The author also asks users to identify the work as `Misterbates — Spooky Halloween`; the project will preserve that voluntary credit.
 - The public high-quality MP3 preview is stored locally as `assets/audio/spooky-halloween-misterbates-677436.mp3` (about 1.25 MiB). After listening review, the music plays at 13% volume and the cricket-and-wind layer at 18%, making the combined mix fuller while retaining headroom for later story sounds.
 
+### First story sound effects — 2026-10-14
+
+- The ticket-booth story uses `Ticket machine printing a ticket` by Licorne_En_Fer for immediate tap feedback. The author describes it as a Zoom H6 recording and explicitly releases it under CC0. Source: https://freesound.org/people/Licorne_En_Fer/sounds/772976/
+- Its magical reveal uses `GLEAM-GLOW-SFX-CHIME.wav` by newagesoup, a 5.381-second left-to-right chime-tree glimmer released under CC0. Source: https://freesound.org/people/newagesoup/sounds/351408/
+- Public high-quality MP3 previews are stored locally as `assets/audio/ticket-print-licorne-en-fer-772976.mp3` and `assets/audio/gleam-chime-newagesoup-351408.mp3`. Both are credited despite CC0 not requiring attribution.
+
 Record only what informs the next build decisions:
 
 - creative alternatives for the scene, stories, and audiovisual direction, with reasons for your choices

@@ -72,6 +72,14 @@ Acceptance checks:
 - Balance the two local tracks at 13% music and 18% ambience. Both begin only after Enter, loop independently, and obey the same Play/Pause state without resetting.
 - If either track fails, allow the other to continue. Show the quiet-night fallback only when both tracks are unavailable.
 
+### Story 1: The Moonlight Pass — implemented for review 2026-10-14
+
+- Make the old ticket booth the first discoverable story trigger. Three taps or keyboard activations reveal three ticket-progress marks; each activation produces a brief booth highlight, ticket-machine sound, distinct progress copy, and updated accessible label.
+- On the third activation, lock every scene target and play a 7.2-second sequence with a clear arc: the booth wakes, eight golden tickets spiral into a glowing `Moonlight — Admit One` pass, and the pass rises and fades back into the night.
+- Duck both ambient tracks during the story, play one CC0 magical chime at the reveal, restore the mix afterward, and reset the three-step trigger so the full story can replay without reloading.
+- Progressively reveal two timed hints at 7 and 15 seconds if the User has not engaged the booth. Pause and resume the hint timers, story timers, CSS animation, story audio, ambience, and scene interaction together through the existing control.
+- With reduced motion enabled, replace ticket movement with a stationary booth glow and centered pass while preserving timing, sound, progress, keyboard operation, and replay.
+
 Define only enough to build and verify the current direction:
 
 - the intended User experience and chosen scene, ambience, and story behavior
