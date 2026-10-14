@@ -64,6 +64,13 @@ Start a fresh chat with:
 - Its magical reveal uses `GLEAM-GLOW-SFX-CHIME.wav` by newagesoup, a 5.381-second left-to-right chime-tree glimmer released under CC0. Source: https://freesound.org/people/newagesoup/sounds/351408/
 - Public high-quality MP3 previews are stored locally as `assets/audio/ticket-print-licorne-en-fer-772976.mp3` and `assets/audio/gleam-chime-newagesoup-351408.mp3`. Both are credited despite CC0 not requiring attribution.
 
+### Second story sound effects — 2026-10-14
+
+- Carousel field recordings containing recognizable music were considered but rejected because a CC0 label on the recording may not reliably clear rights to an underlying composition. The story instead uses original mechanical and animal effects with unambiguous source descriptions.
+- Each carousel-horse discovery uses `Wind-up sound` by Breviceps, a 0.752-second mechanism recording explicitly dedicated to the public domain under CC0. Source: https://freesound.org/people/Breviceps/sounds/445966/
+- The eight-second reveal uses `Wild Horses Galopp` by D4XX, a 9.339-second digital mix made from individual gallop recordings and released under CC0. Source: https://freesound.org/people/D4XX/sounds/564626/
+- Public high-quality MP3 previews are stored locally as `assets/audio/wind-up-breviceps-445966.mp3` and `assets/audio/wild-horses-d4xx-564626.mp3`.
+
 Record only what informs the next build decisions:
 
 - creative alternatives for the scene, stories, and audiovisual direction, with reasons for your choices

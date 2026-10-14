@@ -80,6 +80,14 @@ Acceptance checks:
 - Progressively reveal two timed hints at 7 and 15 seconds if the User has not engaged the booth. Pause and resume the hint timers, story timers, CSS animation, story audio, ambience, and scene interaction together through the existing control.
 - With reduced motion enabled, replace ticket movement with a stationary booth glow and centered pass while preserving timing, sound, progress, keyboard operation, and replay.
 
+### Story 2: The Midnight Ride — implemented for review 2026-10-14
+
+- Divide the carousel into three large, keyboard-accessible horse targets. Finding each distinct left, center, or right horse produces a wind-up sound, persistent golden horseshoe marker, accessible progress update, and unique hint copy; already-found horses cannot increment progress twice.
+- After all three horses are found in any order, lock every scene target and play an eight-second sequence: the carousel wakes, twelve practical lights and three horseshoe sparks orbit its canopy with soft gallop audio, and a `Midnight Ride` medallion appears before the attraction returns to stillness.
+- Duck ambient audio during the sequence, restore it afterward, and reset all three horse targets so the complete trigger and story are replayable without a reload. Story 1 progress must survive if it was partially discovered before Story 2 begins, and vice versa.
+- Provide timed carousel hints at 10 and 19 seconds when untouched. Global Play/Pause must freeze and resume story animation, sound, timing, hints, and interaction as one state.
+- With reduced motion enabled, show a stationary carousel glow and centered medallion rather than rotation or orbital movement while preserving the eight-second narrative timing.
+
 Define only enough to build and verify the current direction:
 
 - the intended User experience and chosen scene, ambience, and story behavior

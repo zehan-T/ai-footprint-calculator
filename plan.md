@@ -28,8 +28,10 @@ Start or continue a fresh chat with:
 - [x] Establish three coordinated ambient-motion systems and a shared Play/Pause state.
 - [x] Source and verify CC0/public-domain ambient audio, then connect it to Enter and the shared pause state.
 - [x] Design and implement the first 5–10 second audiovisual story and its discoverable trigger.
-- [ ] Developer reviews the first story's discoverability, pacing, motion, and sound balance in Browser Preview.
-- [ ] Next after approval: revise Story 1 from observation, then design Story 2 around the carousel.
+- [x] Developer reviews the first story's overall direction in Browser Preview and approves continuation.
+- [x] Design and implement Story 2 around three distinct carousel-horse targets.
+- [ ] Developer reviews Story 2's target placement, pacing, motion, and sound balance in Browser Preview.
+- [ ] Next after approval: revise Story 2 from observation, then design Story 3 around the crow lamp.
 
 Main risk: the center attraction and side discovery anchors must remain visually distinct on short and narrow phones. Verification uses representative viewport screenshots plus direct Developer review; this checkpoint does not claim physical-phone verification.
 
@@ -64,6 +66,10 @@ Mix revision — 2026-10-14: Developer requested a louder overall mix. Raised am
 Physical-phone preview — 2026-10-14: added `scripts/serve-lan.ps1`, a local-network preview server that binds without administrator-only HTTP.sys registration and supports byte-range audio requests. The current Wi-Fi URL returned HTTP 200 for the page and HTTP 206 with the correct `Content-Range` for a music request. Direct Developer verification on the phone remains open and requires the phone and computer to share the same Wi-Fi network.
 
 Story 1 checkpoint — 2026-10-14: implemented `The Moonlight Pass` as a replayable three-activation ticket-booth discovery followed by a 7.2-second beginning/middle/end sequence. It includes visible and accessible progress, timed progressive hints, two verified local CC0 effects, story-time interaction locking, ambient ducking, shared pause for CSS/audio/timers, and a reduced-motion presentation. The running preview returned HTTP 200 for HTML, CSS, JavaScript, and both new MP3 files with correct MIME types; static checks confirmed eight story tickets, three progress marks, three story keyframes, and the reduced-motion branch. Browser review of the actual interaction and pacing remains open.
+
+Story 1 review — 2026-10-14: Developer responded “很好” and requested continuation without a revision, approving the current direction for the next checkpoint.
+
+Story 2 checkpoint — 2026-10-14: implemented `The Midnight Ride` using three distinct carousel-horse targets, persistent per-horse feedback, visible and accessible progress, two timed hints, and an eight-second replayable sequence. The story adds orbiting practical lights, golden horseshoe paths, a final ride medallion, two local CC0 effects, cross-story interaction locking, shared pause behavior, and a reduced-motion presentation. The running preview returned HTTP 200 for HTML, CSS, JavaScript, and both new MP3 files with correct MIME types; static checks confirmed three targets, twelve ring lights, three horseshoe effects, the eight-second finish timer, cross-story guards, and the reduced-motion branch. Browser review remains open.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 

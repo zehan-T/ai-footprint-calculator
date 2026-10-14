@@ -6,10 +6,15 @@ const sceneCaption = document.querySelector("#scene-caption");
 const captionCopy = document.querySelector("#caption-copy");
 const interactionLayer = document.querySelector("#interaction-layer");
 const boothButton = document.querySelector(".scene-target--booth");
+const carouselButtons = [...document.querySelectorAll(".carousel-horse")];
+const lampButton = document.querySelector(".scene-target--lamp");
 const boothStory = document.querySelector("#story-effects");
 const clueMeter = document.querySelector("#booth-clue-meter");
 const clueMeterCopy = document.querySelector("#clue-meter-copy");
 const clueMarkers = [...clueMeter.querySelectorAll(".clue-dot")];
+const carouselClueMeter = document.querySelector("#carousel-clue-meter");
+const carouselClueCopy = document.querySelector("#carousel-clue-copy");
+const carouselClueMarkers = [...carouselClueMeter.querySelectorAll(".carousel-clue-dot")];
 const experience = document.querySelector(".experience");
 const pauseButton = document.querySelector("#pause-button");
 const pauseIcon = pauseButton.querySelector(".pause-icon");
@@ -17,6 +22,8 @@ const ambientAudio = document.querySelector("#ambient-audio");
 const musicAudio = document.querySelector("#music-audio");
 const ticketAudio = document.querySelector("#ticket-audio");
 const chimeAudio = document.querySelector("#chime-audio");
+const windUpAudio = document.querySelector("#wind-up-audio");
+const gallopAudio = document.querySelector("#gallop-audio");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let experienceStarted = false;
@@ -25,6 +32,11 @@ let boothProgress = 0;
 let boothStoryPlaying = false;
 let boothStoryCompleted = false;
 let hintTimersStarted = false;
+let carouselStoryPlaying = false;
+let carouselStoryCompleted = false;
+let carouselHintTimersStarted = false;
+const foundCarouselHorses = new Set();
+const completedStories = new Set();
 
 const unavailableAudio = new Set();
 const scheduledTimers = new Set();
@@ -33,13 +45,15 @@ const audioTracks = [
   { element: ambientAudio, volume: 0.18 },
   { element: musicAudio, volume: 0.13 }
 ];
-const storyAudioTracks = [ticketAudio, chimeAudio];
+const storyAudioTracks = [ticketAudio, chimeAudio, windUpAudio, gallopAudio];
 
 audioTracks.forEach(({ element, volume }) => {
   element.volume = volume;
 });
 ticketAudio.volume = 0.42;
 chimeAudio.volume = 0.32;
+windUpAudio.volume = 0.42;
+gallopAudio.volume = 0.28;
 
 class PausableTimer {
   constructor(callback, delay) {
@@ -89,6 +103,32 @@ function updateMotionPreference() {
 
 function setCaption(message) {
   captionCopy.textContent = message;
+}
+
+function updateHudStoryCount() {
+  const remaining = 3 - completedStories.size;
+  if (remaining === 0) {
+    hudHint.textContent = "Every midway secret is awake";
+  } else if (remaining === 1) {
+    hudHint.textContent = "One surprise is still waiting";
+  } else {
+    hudHint.textContent = `${remaining} surprises are still waiting`;
+  }
+}
+
+function setSceneInteractionsLocked(locked) {
+  interactionLayer.classList.toggle("is-locked", locked);
+  boothButton.disabled = locked;
+  carouselButtons.forEach((button) => {
+    button.disabled = locked || foundCarouselHorses.has(button.dataset.carouselHorse);
+  });
+  lampButton.disabled = true;
+}
+
+function duckAmbientAudio(ducked) {
+  audioTracks.forEach(({ element, volume }) => {
+    element.volume = ducked ? volume * 0.55 : volume;
+  });
 }
 
 function reportAudioFailure(audio) {
@@ -193,22 +233,20 @@ function resetStoryAudio() {
 function finishBoothStory() {
   boothStoryPlaying = false;
   boothStoryCompleted = true;
+  completedStories.add("booth");
   boothProgress = 0;
   experience.classList.remove("is-story-playing");
-  interactionLayer.classList.remove("is-locked");
   boothStory.setAttribute("aria-hidden", "true");
-  boothButton.disabled = false;
+  setSceneInteractionsLocked(false);
   boothButton.tabIndex = 0;
   boothButton.setAttribute("aria-label", "Old ticket booth, ready to replay");
   clueMarkers.forEach((marker) => marker.classList.remove("is-found"));
   clueMeter.classList.add("is-hidden");
   clueMeter.setAttribute("aria-label", "Ticket booth clue progress: 0 of 3");
   clueMeterCopy.textContent = "0 of 3 tickets found";
-  hudHint.textContent = "Two surprises are still waiting";
+  updateHudStoryCount();
   setCaption("The moonlight pass is yours. The old booth can replay its secret.");
-  audioTracks.forEach(({ element, volume }) => {
-    element.volume = volume;
-  });
+  duckAmbientAudio(false);
   resetStoryAudio();
   boothButton.focus({ preventScroll: true });
 }
@@ -216,15 +254,12 @@ function finishBoothStory() {
 function startBoothStory() {
   boothStoryPlaying = true;
   experience.classList.add("is-story-playing");
-  interactionLayer.classList.add("is-locked");
   boothStory.setAttribute("aria-hidden", "false");
-  boothButton.disabled = true;
+  setSceneInteractionsLocked(true);
   hudHint.textContent = "The ticket booth remembers";
   setCaption("Three tickets found. The old booth is waking...");
 
-  audioTracks.forEach(({ element, volume }) => {
-    element.volume = volume * 0.55;
-  });
+  duckAmbientAudio(true);
 
   scheduleEvent(() => {
     playStoryAudio(chimeAudio);
@@ -240,7 +275,7 @@ function startBoothStory() {
 }
 
 function handleBoothDiscovery() {
-  if (!experienceStarted || experiencePaused || boothStoryPlaying) return;
+  if (!experienceStarted || experiencePaused || boothStoryPlaying || carouselStoryPlaying) return;
 
   boothProgress += 1;
   pulseBoothTarget();
@@ -258,23 +293,131 @@ function handleBoothDiscovery() {
   }
 }
 
+function updateCarouselProgress() {
+  const progress = foundCarouselHorses.size;
+  carouselClueMeter.classList.remove("is-hidden");
+  carouselClueMarkers.forEach((marker, index) => {
+    marker.classList.toggle("is-found", index < progress);
+  });
+  carouselClueMeter.setAttribute("aria-label", `Carousel clue progress: ${progress} of 3`);
+  carouselClueCopy.textContent = `${progress} of 3 carousel horses found`;
+}
+
+function resetCarouselProgress() {
+  foundCarouselHorses.clear();
+  carouselButtons.forEach((button) => {
+    const horseName = button.dataset.carouselHorse;
+    button.classList.remove("is-found");
+    button.setAttribute("aria-label", `${horseName[0].toUpperCase()}${horseName.slice(1)} carousel horse, not found`);
+  });
+  carouselClueMarkers.forEach((marker) => marker.classList.remove("is-found"));
+  carouselClueMeter.classList.add("is-hidden");
+  carouselClueMeter.setAttribute("aria-label", "Carousel clue progress: 0 of 3");
+  carouselClueCopy.textContent = "0 of 3 carousel horses found";
+}
+
+function finishCarouselStory() {
+  carouselStoryPlaying = false;
+  carouselStoryCompleted = true;
+  completedStories.add("carousel");
+  experience.classList.remove("is-carousel-story-playing");
+  boothStory.setAttribute("aria-hidden", "true");
+  resetCarouselProgress();
+  setSceneInteractionsLocked(false);
+  carouselButtons.forEach((button) => {
+    button.tabIndex = 0;
+  });
+  updateHudStoryCount();
+  setCaption("The midnight ride returns to stillness, ready to run again.");
+  duckAmbientAudio(false);
+  resetStoryAudio();
+  carouselButtons[1].focus({ preventScroll: true });
+}
+
+function startCarouselStory() {
+  carouselStoryPlaying = true;
+  experience.classList.add("is-carousel-story-playing");
+  boothStory.setAttribute("aria-hidden", "false");
+  setSceneInteractionsLocked(true);
+  hudHint.textContent = "The painted horses remember the route";
+  setCaption("Three horses found. The old carousel begins to turn...");
+  duckAmbientAudio(true);
+
+  scheduleEvent(() => {
+    playStoryAudio(gallopAudio);
+    setCaption("Golden hoofbeats circle beneath the moon.");
+  }, 650);
+  scheduleEvent(() => {
+    setCaption("The lights race once around the sleeping midway.");
+  }, 2800);
+  scheduleEvent(() => {
+    setCaption("A Midnight Ride badge shines at the carousel's heart.");
+  }, 5200);
+  scheduleEvent(finishCarouselStory, 8000);
+}
+
+function handleCarouselDiscovery(event) {
+  if (!experienceStarted || experiencePaused || boothStoryPlaying || carouselStoryPlaying) return;
+
+  const button = event.currentTarget;
+  const horseName = button.dataset.carouselHorse;
+  if (foundCarouselHorses.has(horseName)) return;
+
+  foundCarouselHorses.add(horseName);
+  button.classList.add("is-found");
+  button.disabled = true;
+  button.setAttribute("aria-label", `${horseName[0].toUpperCase()}${horseName.slice(1)} carousel horse, found`);
+  updateCarouselProgress();
+  playStoryAudio(windUpAudio);
+
+  const progress = foundCarouselHorses.size;
+  if (progress === 1) {
+    hudHint.textContent = "One painted horse remembers";
+    setCaption("A tiny winding key turns. 1 of 3 horses found.");
+  } else if (progress === 2) {
+    hudHint.textContent = "Another horse waits beneath the canopy";
+    setCaption("A second wooden horse catches the moonlight. 2 of 3 found.");
+  } else {
+    startCarouselStory();
+  }
+}
+
 function scheduleBoothHints() {
   if (hintTimersStarted) return;
   hintTimersStarted = true;
 
   scheduleEvent(() => {
-    if (boothProgress === 0 && !boothStoryPlaying && !boothStoryCompleted) {
+    if (boothProgress === 0 && !boothStoryPlaying && !carouselStoryPlaying && !boothStoryCompleted) {
       hudHint.textContent = "A loose ticket trembles behind old glass";
       setCaption("Something papery stirs near the left side of the midway.");
     }
   }, 7000);
 
   scheduleEvent(() => {
-    if (boothProgress === 0 && !boothStoryPlaying && !boothStoryCompleted) {
+    if (boothProgress === 0 && !boothStoryPlaying && !carouselStoryPlaying && !boothStoryCompleted) {
       hudHint.textContent = "The ticket booth may answer a curious tap";
       setCaption("The smallest window seems to be waiting for you.");
     }
   }, 15000);
+}
+
+function scheduleCarouselHints() {
+  if (carouselHintTimersStarted) return;
+  carouselHintTimersStarted = true;
+
+  scheduleEvent(() => {
+    if (foundCarouselHorses.size === 0 && !boothStoryPlaying && !carouselStoryPlaying && !carouselStoryCompleted) {
+      hudHint.textContent = "Three painted riders are holding their breath";
+      setCaption("More than one wooden horse is watching the moon.");
+    }
+  }, 10000);
+
+  scheduleEvent(() => {
+    if (foundCarouselHorses.size === 0 && !boothStoryPlaying && !carouselStoryPlaying && !carouselStoryCompleted) {
+      hudHint.textContent = "Each carousel horse carries one small spark";
+      setCaption("Try greeting the left, center, and right riders.");
+    }
+  }, 19000);
 }
 
 updateMotionPreference();
@@ -292,9 +435,13 @@ enterButton.addEventListener("click", () => {
   interactionLayer.classList.remove("is-hidden");
   interactionLayer.setAttribute("aria-hidden", "false");
   boothButton.tabIndex = 0;
+  carouselButtons.forEach((button) => {
+    button.tabIndex = 0;
+  });
   pauseButton.disabled = false;
   setExperiencePaused(false);
   scheduleBoothHints();
+  scheduleCarouselHints();
 });
 
 pauseButton.addEventListener("click", () => {
@@ -302,3 +449,6 @@ pauseButton.addEventListener("click", () => {
 });
 
 boothButton.addEventListener("click", handleBoothDiscovery);
+carouselButtons.forEach((button) => {
+  button.addEventListener("click", handleCarouselDiscovery);
+});

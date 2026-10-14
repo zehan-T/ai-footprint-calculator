@@ -75,6 +75,18 @@
             <span class="pass-moon"></span>
             <span class="pass-copy"><strong>Moonlight</strong><small>Admit one</small></span>
           </div>
+          <div class="carousel-story-glow story-animated"></div>
+          <div class="carousel-story-ring story-animated">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="horseshoe-spark horseshoe-spark--1 story-animated"></div>
+          <div class="horseshoe-spark horseshoe-spark--2 story-animated"></div>
+          <div class="horseshoe-spark horseshoe-spark--3 story-animated"></div>
+          <div class="ride-medallion story-animated">
+            <span class="medallion-star">★</span>
+            <span><strong>Midnight</strong><small>Ride</small></span>
+          </div>
         </div>
         <div class="fog fog-front ambient"></div>
 
@@ -88,11 +100,17 @@
 
       <div class="interaction-layer is-hidden" id="interaction-layer" aria-hidden="true">
         <button class="scene-target scene-target--booth" type="button" tabindex="-1" data-target="booth" aria-label="Old ticket booth, 0 of 3 tickets found"></button>
-        <button class="scene-target scene-target--carousel" type="button" tabindex="-1" data-target="carousel" aria-label="Antique carousel" disabled></button>
+        <button class="scene-target carousel-horse carousel-horse--left" type="button" tabindex="-1" data-carousel-horse="left" aria-label="Left carousel horse, not found"></button>
+        <button class="scene-target carousel-horse carousel-horse--center" type="button" tabindex="-1" data-carousel-horse="center" aria-label="Center carousel horse, not found"></button>
+        <button class="scene-target carousel-horse carousel-horse--right" type="button" tabindex="-1" data-carousel-horse="right" aria-label="Right carousel horse, not found"></button>
         <button class="scene-target scene-target--lamp" type="button" tabindex="-1" data-target="lamp" aria-label="Crow on the lamp" disabled></button>
         <div class="clue-meter is-hidden" id="booth-clue-meter" role="status" aria-live="polite" aria-label="Ticket booth clue progress: 0 of 3">
           <span class="clue-dot"></span><span class="clue-dot"></span><span class="clue-dot"></span>
           <span class="sr-only" id="clue-meter-copy">0 of 3 tickets found</span>
+        </div>
+        <div class="clue-meter carousel-clue-meter is-hidden" id="carousel-clue-meter" role="status" aria-live="polite" aria-label="Carousel clue progress: 0 of 3">
+          <span class="carousel-clue-dot"></span><span class="carousel-clue-dot"></span><span class="carousel-clue-dot"></span>
+          <span class="sr-only" id="carousel-clue-copy">0 of 3 carousel horses found</span>
         </div>
       </div>
 
@@ -134,6 +152,12 @@
     </audio>
     <audio id="chime-audio" preload="auto">
       <source src="assets/audio/gleam-chime-newagesoup-351408.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="wind-up-audio" preload="auto">
+      <source src="assets/audio/wind-up-breviceps-445966.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="gallop-audio" preload="auto">
+      <source src="assets/audio/wild-horses-d4xx-564626.mp3" type="audio/mpeg" />
     </audio>
     <script src="app.js"></script>
   </body>
