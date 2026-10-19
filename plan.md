@@ -32,7 +32,7 @@ Start or continue a fresh chat with:
 - [x] Design and implement Story 2 around three distinct carousel-horse targets.
 - [x] Developer reviews Story 2's target placement, pacing, motion, and sound balance in Browser Preview.
 - [x] Design and implement Story 3 around the crow lamp.
-- [ ] Developer reviews Story 3's revised one-click target, visual restraint, pacing, and sound balance.
+- [x] Developer reviews Story 3's revised one-click target, visual restraint, pacing, and sound balance.
 - [x] Add visible developer and asset credits with pause-safe modal behavior.
 - [x] Developer reviews the Credits layout and pause/resume behavior on the public phone build.
 - [x] Push the complete Git history and project files to a public GitHub repository.
@@ -40,7 +40,7 @@ Start or continue a fresh chat with:
 - [x] Verify the public URL on a physical smartphone and record the result.
 - [x] Record the initial Phase 2 peer-playtesting observations from two smartphone Users.
 - [x] Revise carousel target feedback and the crow hit area from the playtest evidence.
-- [ ] Run a follow-up smartphone test of the two revised interactions.
+- [x] Run a follow-up smartphone test of the two revised interactions.
 - [ ] Add and complete the course-provided `debrief.md`.
 
 Main risk: the center attraction and side discovery anchors must remain visually distinct on short and narrow phones. Verification uses representative viewport screenshots plus direct Developer review; this checkpoint does not claim physical-phone verification.
@@ -100,6 +100,8 @@ Initial Phase 2 peer playtest — 2026-10-19:
 - Interpretation: preserve the approved sound mix and visual direction. Prioritize persistent differentiation between found and remaining carousel horses, then align and enlarge the crow interaction region so the visible crow responds directly. Follow-up testing must verify that Users discover both interactions without explanation.
 
 Phase 2 interaction revision — 2026-10-19: carousel horses that are already found remain tappable and now return a short repeat response instead of becoming silent controls; repeat selections explain that a different rider is needed and briefly illuminate the remaining targets. Progress text explicitly counts three different horses. The crow target now covers a larger region centered on the visible crow and upper lamp, plays its call immediately, shows a confirmation ring and `1 of 1` progress, and still starts the complete story with one activation. Sound levels, scene grading, story timing, replay, shared pause, and reduced-motion behavior remain unchanged. Follow-up smartphone testing is still required.
+
+Follow-up Phase 2 verification — 2026-10-19: Developer reviewed the published carousel and crow refinements and responded “很不错，继续,” approving the clearer distinct-horse feedback and revised one-click crow target without further changes. No device or browser details were supplied for this follow-up, so none are inferred here.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 

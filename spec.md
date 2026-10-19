@@ -72,7 +72,7 @@ Acceptance checks:
 - Balance the two local tracks at 13% music and 18% ambience. Both begin only after Enter, loop independently, and obey the same Play/Pause state without resetting.
 - If either track fails, allow the other to continue. Show the quiet-night fallback only when both tracks are unavailable.
 
-### Story 1: The Moonlight Pass — implemented for review 2026-10-14
+### Story 1: The Moonlight Pass — approved 2026-10-14
 
 - Make the old ticket booth the first discoverable story trigger. Three taps or keyboard activations reveal three ticket-progress marks; each activation produces a brief booth highlight, ticket-machine sound, distinct progress copy, and updated accessible label.
 - On the third activation, lock every scene target and play a 7.2-second sequence with a clear arc: the booth wakes, eight golden tickets spiral into a glowing `Moonlight — Admit One` pass, and the pass rises and fades back into the night.
@@ -80,7 +80,7 @@ Acceptance checks:
 - Progressively reveal two timed hints at 7 and 15 seconds if the User has not engaged the booth. Pause and resume the hint timers, story timers, CSS animation, story audio, ambience, and scene interaction together through the existing control.
 - With reduced motion enabled, replace ticket movement with a stationary booth glow and centered pass while preserving timing, sound, progress, keyboard operation, and replay.
 
-### Story 2: The Midnight Ride — implemented for review 2026-10-14
+### Story 2: The Midnight Ride — approved 2026-10-14
 
 - Divide the carousel into three large, keyboard-accessible horse targets. Finding each distinct left, center, or right horse produces a wind-up sound, persistent golden horseshoe marker, accessible progress update, and unique hint copy. Already-found horses cannot increment progress twice, but remain interactive: a repeat selection produces audiovisual feedback, explains that the spark was already found, and briefly highlights the remaining distinct horses.
 - After all three horses are found in any order, lock every scene target and play an eight-second sequence: the carousel wakes, twelve practical lights and three horseshoe sparks orbit its canopy with soft gallop audio, and a `Midnight Ride` medallion appears before the attraction returns to stillness.
@@ -88,7 +88,7 @@ Acceptance checks:
 - Provide timed carousel hints at 10 and 19 seconds when untouched. Global Play/Pause must freeze and resume story animation, sound, timing, hints, and interaction as one state.
 - With reduced motion enabled, show a stationary carousel glow and centered medallion rather than rotation or orbital movement while preserving the eight-second narrative timing.
 
-### Story 3: The Moonlit Beacon — implemented for review 2026-10-14
+### Story 3: The Moonlit Beacon — approved after peer-playtest revision 2026-10-19
 
 - Use one enlarged keyboard-accessible target aligned over the visible crow and upper lamp. One activation gives immediate crow-call and confirmation-ring feedback, reports `1 of 1` signal found, locks every scene target, and begins the eight-second story; no multi-step progress or ordered lamp interaction is required.
 - During the story, the lamp casts a restrained beam, the crow flies toward the moon with seven drifting feathers and wing audio, and a `Moonlit Beacon` seal appears before the lamp returns to its ambient state.
@@ -96,7 +96,7 @@ Acceptance checks:
 - Provide timed hints at 13 and 23 seconds if untouched. Global Play/Pause must freeze and resume story motion, audio, timing, hints, and interactions as one state.
 - With reduced motion enabled, replace the flight, feathers, and moving beam with a stationary lamp glow and seal while retaining the narrative timing, sound, one-click trigger, and replay behavior.
 
-### Credits and final integration — implemented for review 2026-10-14
+### Credits and final integration — approved 2026-10-14
 
 - Provide a clearly labeled Credits control on the start screen and a persistent information control in the scene HUD. Both open the same keyboard-accessible modal without changing pages.
 - Credit zehan-T for concept, direction, development, and testing; identify AI-assisted original background production and custom code; credit the Rye typeface and every runtime audio asset with its creator, license category, and direct source link.
