@@ -282,14 +282,36 @@ function showCompletionEnding() {
   return true;
 }
 
-function closeCompletionEnding() {
+function restartExperience() {
   completionEnding.classList.remove("is-visible");
   completionEnding.setAttribute("aria-hidden", "true");
+  completedStories.clear();
+  completionEndingShown = false;
+  boothStoryCompleted = false;
+  carouselStoryCompleted = false;
+  lampStoryCompleted = false;
+  boothProgress = 0;
+  clueMarkers.forEach((marker) => marker.classList.remove("is-found"));
+  clueMeter.classList.add("is-hidden");
+  clueMeter.setAttribute("aria-label", "Ticket booth clue progress: 0 of 3");
+  clueMeterCopy.textContent = "0 of 3 tickets found";
+  boothButton.setAttribute("aria-label", "Old ticket booth, 0 of 3 tickets found");
+  resetCarouselProgress();
+  crowButton.classList.remove("is-activated");
+  crowButton.setAttribute("aria-label", "Crow above the lamp, play the Moonlit Beacon story");
+  hintTimersStarted = false;
+  carouselHintTimersStarted = false;
+  lampHintTimersStarted = false;
   setSceneInteractionsLocked(false);
-  setCaption("All three secrets are awake. Replay any story whenever you wish.");
+  hudHint.textContent = "Three surprises glow in the midway";
+  setCaption("A new moonlit adventure begins. Follow the lights.");
   window.setTimeout(() => {
     completionEnding.hidden = true;
   }, 350);
+  if (experiencePaused) setExperiencePaused(false);
+  scheduleBoothHints();
+  scheduleCarouselHints();
+  scheduleLampHints();
   boothButton.focus({ preventScroll: true });
 }
 
@@ -605,7 +627,7 @@ pauseButton.addEventListener("click", () => {
   setExperiencePaused(!experiencePaused);
 });
 
-completionButton.addEventListener("click", closeCompletionEnding);
+completionButton.addEventListener("click", restartExperience);
 
 creditsOpenButtons.forEach((button) => {
   button.addEventListener("click", openCredits);

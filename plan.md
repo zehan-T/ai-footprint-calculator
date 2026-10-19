@@ -42,7 +42,8 @@ Start or continue a fresh chat with:
 - [x] Revise carousel target feedback and the crow hit area from the playtest evidence.
 - [x] Run a follow-up smartphone test of the two revised interactions.
 - [x] Record the additional playtest finding that the complete experience needs an explicit game ending.
-- [x] Add a one-time whole-experience completion ending after all three stories are found.
+- [x] Add a whole-experience completion ending after all three stories are found.
+- [x] Replace the ambiguous continuation action with a true `Play Again` reset.
 - [ ] Developer verifies the completion ending on a physical smartphone.
 - [ ] Add and complete the course-provided `debrief.md`.
 
@@ -110,7 +111,9 @@ Additional Phase 2 playtest finding — 2026-10-19: another User said that if th
 
 Whole-experience ending revision — 2026-10-19: completing the third distinct story in any order now opens a `Midway Complete` ending with explicit completion copy, three earned-story badges, and the existing gleam chime. Scene targets remain locked until the User chooses `Keep Exploring`; closing the ending preserves completion state and all three replay controls. The ending appears only once per page session and includes a reduced-motion presentation. Physical-smartphone verification remains assigned to the Developer.
 
-Whole-experience ending verification — 2026-10-19: the existing local preview returned HTTP 200 with the expected UTF-8 content types for HTML, CSS, and JavaScript. Static checks confirm one completion dialog, three earned-story badges, completion checks at all three story endings, one-session gating, interaction locking and restoration, shared pause behavior for the ending animation, and a reduced-motion override. A Chrome DevTools interaction harness was added for repeatable state testing, but its first local run did not complete because the browser target was returned in an unexpected collection shape; the harness was hardened afterward and is not counted as passing evidence. Direct completion-flow verification remains open on the Developer's physical smartphone.
+Whole-experience ending verification — 2026-10-19: the existing local preview returned HTTP 200 with the expected UTF-8 content types for HTML, CSS, and JavaScript. Static checks confirm one completion dialog, three earned-story badges, completion checks at all three story endings, interaction locking and restoration, shared pause behavior for the ending animation, and a reduced-motion override. The hardened Chrome state harness then verified the visible ending and focused completion control, paused halo animation and updated Pause label, unlocked scene and cleared completion state after `Play Again`, and a second ending after another simulated full run. Direct visual verification remains open on the Developer's physical smartphone.
+
+Ending-action clarification — 2026-10-19: Developer found `Keep Exploring` ambiguous and requested language meaning “play once more.” The action is now `Play Again` and performs a real new-run reset: it clears distinct-story completion, any partial booth or carousel discovery, crow state, hint timing, and the completion gate. It also resumes a paused experience. Finishing all three stories in the new run can therefore produce the ending again.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 

@@ -104,10 +104,10 @@ Acceptance checks:
 
 ### Whole-experience ending — implemented for review 2026-10-19
 
-- After the User completes all three distinct stories in any order, present one clear `Midway Complete` ending during that session. State that all three moonlit secrets were found and show the three earned story badges.
+- After the User completes all three distinct stories in any order, present one clear `Midway Complete` ending for that run. State that all three moonlit secrets were found and show the three earned story badges.
 - Lock scene targets while the ending is open, keep the established dark family-fantasy direction, and reuse the existing gleam chime rather than adding an uncredited asset.
-- Provide a keyboard- and touch-accessible `Keep Exploring` control. Closing the ending returns to the live scene without erasing completion state and leaves every story replayable.
-- Play/Pause and reduced-motion behavior remain available. The ending must not appear again when a completed story is replayed during the same page session.
+- Provide a keyboard- and touch-accessible `Play Again` control. Activating it resets the three story-completion records, partial trigger progress, hints, and completion gate, then returns to the live scene for a complete new run without reloading the page.
+- Play/Pause and reduced-motion behavior remain available. Completing all three stories again must produce another ending.
 
 Define only enough to build and verify the current direction:
 

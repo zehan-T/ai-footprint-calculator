@@ -61,16 +61,17 @@ try {
   if (-not $target) { throw "Chrome DevTools page target did not start." }
 
   $socket = [Net.WebSockets.ClientWebSocket]::new()
-  $socket.ConnectAsync([Uri]$target.webSocketDebuggerUrl, [Threading.CancellationToken]::None).GetAwaiter().GetResult()
+  $socket.ConnectAsync([Uri]$target.webSocketDebuggerUrl, [Threading.CancellationToken]::None).GetAwaiter().GetResult() | Out-Null
   Start-Sleep -Milliseconds 600
 
   $showExpression = @'
-(() => {
+(async () => {
   enterButton.click();
   completedStories.add("booth");
   completedStories.add("carousel");
   completedStories.add("lamp");
   const shown = showCompletionEnding();
+  await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
   return JSON.stringify({
     shown,
     hidden: completionEnding.hidden,
@@ -83,17 +84,51 @@ try {
   });
 })()
 '@
-  $show = Invoke-Cdp -Id 1 -Method "Runtime.evaluate" -Params @{ expression = $showExpression; returnByValue = $true }
+  $show = Invoke-Cdp -Id 1 -Method "Runtime.evaluate" -Params @{ expression = $showExpression; returnByValue = $true; awaitPromise = $true }
   if ($show.result.exceptionDetails) { throw $show.result.exceptionDetails.text }
   Write-Output ("completion_test=" + $show.result.result.value)
+  $showState = $show.result.result.value | ConvertFrom-Json
+  if (-not $showState.shown -or $showState.hidden -or -not $showState.visible -or $showState.ariaHidden -ne "false" -or -not $showState.targetLocked -or $showState.focusedControl -ne "completion-button" -or $showState.badgeCount -ne 3) {
+    throw "The completion ending did not reach its expected visible state."
+  }
 
   $pauseExpression = 'setExperiencePaused(true); JSON.stringify({paused: experiencePaused, haloState: getComputedStyle(document.querySelector(".completion-halo")).animationPlayState, pauseLabel: pauseButton.getAttribute("aria-label")})'
   $pause = Invoke-Cdp -Id 2 -Method "Runtime.evaluate" -Params @{ expression = $pauseExpression; returnByValue = $true }
   Write-Output ("pause_test=" + $pause.result.result.value)
+  $pauseState = $pause.result.result.value | ConvertFrom-Json
+  if (-not $pauseState.paused -or $pauseState.haloState -ne "paused" -or $pauseState.pauseLabel -ne "Resume experience") {
+    throw "The completion ending did not follow the shared pause state."
+  }
 
-  $closeExpression = 'setExperiencePaused(false); closeCompletionEnding(); JSON.stringify({ariaHidden: completionEnding.getAttribute("aria-hidden"), targetLocked: interactionLayer.classList.contains("is-locked"), focusedControl: document.activeElement.className, shownOnce: completionEndingShown})'
+  $closeExpression = 'restartExperience(); JSON.stringify({ariaHidden: completionEnding.getAttribute("aria-hidden"), targetLocked: interactionLayer.classList.contains("is-locked"), focusedControl: document.activeElement.className, readyForAnotherEnding: !completionEndingShown, completedStoryCount: completedStories.size})'
   $close = Invoke-Cdp -Id 3 -Method "Runtime.evaluate" -Params @{ expression = $closeExpression; returnByValue = $true }
   Write-Output ("close_test=" + $close.result.result.value)
+  $closeState = $close.result.result.value | ConvertFrom-Json
+  if ($closeState.ariaHidden -ne "true" -or $closeState.targetLocked -or -not $closeState.readyForAnotherEnding -or $closeState.completedStoryCount -ne 0) {
+    throw "Play Again did not reset the run."
+  }
+
+  $replayExpression = @'
+(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 400));
+  completedStories.add("booth");
+  completedStories.add("carousel");
+  completedStories.add("lamp");
+  const shownAgain = showCompletionEnding();
+  await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  return JSON.stringify({
+    shownAgain,
+    visible: completionEnding.classList.contains("is-visible"),
+    completedStoryCount: completedStories.size
+  });
+})()
+'@
+  $replay = Invoke-Cdp -Id 4 -Method "Runtime.evaluate" -Params @{ expression = $replayExpression; returnByValue = $true; awaitPromise = $true }
+  Write-Output ("replay_test=" + $replay.result.result.value)
+  $replayState = $replay.result.result.value | ConvertFrom-Json
+  if (-not $replayState.shownAgain -or -not $replayState.visible -or $replayState.completedStoryCount -ne 3) {
+    throw "A completed replay did not produce another ending."
+  }
 } finally {
   if ($socket) { $socket.Dispose() }
   if ($browser -and -not $browser.HasExited) { Stop-Process -Id $browser.Id -Force }
