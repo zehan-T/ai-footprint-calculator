@@ -24,7 +24,7 @@ Start or continue a fresh chat with:
 - [x] Replace the rejected cartoon treatment with a cinematic realistic background while preserving the approved composition.
 - [x] Developer reviews the composition in VS Code Browser Preview and on a physical phone viewport.
 - [x] Add transparent foreground, atmosphere, particle, story-effect, target, and transition layers without activating scene interactions.
-- [ ] Next after approval: establish the first ambient effect and shared Play/Pause state.
+- [x] Receive approval and establish the first ambient effect and shared Play/Pause state.
 - [x] Establish three coordinated ambient-motion systems and a shared Play/Pause state.
 - [x] Source and verify CC0/public-domain ambient audio, then connect it to Enter and the shared pause state.
 - [x] Design and implement the first 5–10 second audiovisual story and its discoverable trigger.
@@ -32,13 +32,16 @@ Start or continue a fresh chat with:
 - [x] Design and implement Story 2 around three distinct carousel-horse targets.
 - [x] Developer reviews Story 2's target placement, pacing, motion, and sound balance in Browser Preview.
 - [x] Design and implement Story 3 around the crow lamp.
-- [ ] Developer reviews Story 3's ordered targets, visual restraint, pacing, and sound balance in Browser Preview.
+- [ ] Developer reviews Story 3's revised one-click target, visual restraint, pacing, and sound balance.
 - [x] Add visible developer and asset credits with pause-safe modal behavior.
 - [x] Developer reviews the Credits layout and pause/resume behavior on the public phone build.
 - [x] Push the complete Git history and project files to a public GitHub repository.
 - [x] Deploy the current prototype to a public HTTPS URL with GitHub Pages.
 - [x] Verify the public URL on a physical smartphone and record the result.
-- [ ] Complete peer-playtesting notes and add the course-provided `debrief.md` during the later Phase 2 workflow.
+- [x] Record the initial Phase 2 peer-playtesting observations from two smartphone Users.
+- [ ] Revise carousel target feedback and the crow hit area from the playtest evidence.
+- [ ] Run a follow-up smartphone test of the two revised interactions.
+- [ ] Add and complete the course-provided `debrief.md`.
 
 Main risk: the center attraction and side discovery anchors must remain visually distinct on short and narrow phones. Verification uses representative viewport screenshots plus direct Developer review; this checkpoint does not claim physical-phone verification.
 
@@ -84,11 +87,17 @@ Story 3 checkpoint — 2026-10-14: implemented `The Moonlit Beacon` as a forgivi
 
 Story 3 interaction revision — 2026-10-14: Developer found the three-step crow, lantern, and post trigger too repetitive. The interaction now uses one large crow target that starts the complete story after a single activation. Ordered-step state, lamp/post targets, progress dots, error pulses, switch feedback, and related instructions were removed from the runtime while the eight-second sequence, replay, pause, cross-story locking, and reduced-motion behavior remain unchanged.
 
-Credits checkpoint — 2026-10-14: added explicit start-screen and persistent HUD access to an accessible Credits modal. It identifies the Developer, AI-assisted original artwork, custom code, Rye typeface, and every runtime audio asset with creator and direct source link. Opening it during play uses the shared pause controller, and closing it resumes only when it interrupted a running experience. Physical-phone verification, peer-playtesting evidence, and the course-provided `debrief.md` remain outstanding.
+Credits checkpoint — 2026-10-14: added explicit start-screen and persistent HUD access to an accessible Credits modal. It identifies the Developer, AI-assisted original artwork, custom code, Rye typeface, and every runtime audio asset with creator and direct source link. Opening it during play uses the shared pause controller, and closing it resumes only when it interrupted a running experience. The course-provided `debrief.md` remains outstanding.
 
 Phase 1 deployment — 2026-10-14: pushed the complete local `main` history to the public repository at `https://github.com/zehan-T/ai-footprint-calculator` and enabled GitHub Pages from the repository root. The Pages build completed successfully for commit `4eeafb8`, with HTTPS enforced at `https://zehan-t.github.io/ai-footprint-calculator/`. Direct requests returned HTTP 200 for the page, CSS, JavaScript, active background image, ambient music, and first-story sound. The subsequent physical-smartphone result is recorded below.
 
 Phase 1 phone verification — 2026-10-14: after receiving the public-URL checklist, the Developer reported the smartphone test as “pass” on an iPhone 17 Pro using Google Chrome. This confirms the submitted Phase 1 flow at the level reported by the Developer: public page loading and phone framing, Enter-started sound and motion, shared Play/Pause, the complete replayable ticket-booth story, and Credits access.
+
+Initial Phase 2 peer playtest — 2026-10-19:
+
+- User 1 tested independently on an iPhone 14; browser was not reported. The ticket booth was discovered first, no blocking point was observed, and sound and visual style were both rated positively. The User reported no additional concerns.
+- User 2 tested independently on an iPhone 17; browser was not reported. The ticket booth was discovered first, and sound and visual style were both rated positively. At the carousel, the User repeatedly selected the same horse because the need to find three different horses was not visually apparent. The User also attempted to tap the visible crow without receiving a response and activated the story only after the Developer suggested tapping the lamp.
+- Interpretation: preserve the approved sound mix and visual direction. Prioritize persistent differentiation between found and remaining carousel horses, then align and enlarge the crow interaction region so the visible crow responds directly. Follow-up testing must verify that Users discover both interactions without explanation.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
