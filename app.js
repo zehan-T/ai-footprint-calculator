@@ -21,6 +21,8 @@ const pauseIcon = pauseButton.querySelector(".pause-icon");
 const creditsDialog = document.querySelector("#credits-dialog");
 const creditsOpenButtons = [...document.querySelectorAll(".credits-open-button")];
 const creditsCloseButton = document.querySelector("#credits-close-button");
+const completionEnding = document.querySelector("#completion-ending");
+const completionButton = document.querySelector("#completion-button");
 const ambientAudio = document.querySelector("#ambient-audio");
 const musicAudio = document.querySelector("#music-audio");
 const ticketAudio = document.querySelector("#ticket-audio");
@@ -44,6 +46,7 @@ let carouselHintTimersStarted = false;
 let lampStoryPlaying = false;
 let lampStoryCompleted = false;
 let lampHintTimersStarted = false;
+let completionEndingShown = false;
 const foundCarouselHorses = new Set();
 const completedStories = new Set();
 
@@ -262,6 +265,34 @@ function resetStoryAudio() {
   });
 }
 
+function showCompletionEnding() {
+  if (completedStories.size !== 3 || completionEndingShown) return false;
+
+  completionEndingShown = true;
+  setSceneInteractionsLocked(true);
+  hudHint.textContent = "Midway complete · all three secrets found";
+  setCaption("You found every moonlit story. The midway is complete!");
+  completionEnding.hidden = false;
+  completionEnding.setAttribute("aria-hidden", "false");
+  window.requestAnimationFrame(() => {
+    completionEnding.classList.add("is-visible");
+    completionButton.focus({ preventScroll: true });
+  });
+  playStoryAudio(chimeAudio);
+  return true;
+}
+
+function closeCompletionEnding() {
+  completionEnding.classList.remove("is-visible");
+  completionEnding.setAttribute("aria-hidden", "true");
+  setSceneInteractionsLocked(false);
+  setCaption("All three secrets are awake. Replay any story whenever you wish.");
+  window.setTimeout(() => {
+    completionEnding.hidden = true;
+  }, 350);
+  boothButton.focus({ preventScroll: true });
+}
+
 function finishBoothStory() {
   boothStoryPlaying = false;
   boothStoryCompleted = true;
@@ -280,7 +311,7 @@ function finishBoothStory() {
   setCaption("The moonlight pass is yours. The old booth can replay its secret.");
   duckAmbientAudio(false);
   resetStoryAudio();
-  boothButton.focus({ preventScroll: true });
+  if (!showCompletionEnding()) boothButton.focus({ preventScroll: true });
 }
 
 function startBoothStory() {
@@ -377,7 +408,7 @@ function finishCarouselStory() {
   setCaption("The midnight ride returns to stillness, ready to run again.");
   duckAmbientAudio(false);
   resetStoryAudio();
-  carouselButtons[1].focus({ preventScroll: true });
+  if (!showCompletionEnding()) carouselButtons[1].focus({ preventScroll: true });
 }
 
 function startCarouselStory() {
@@ -451,7 +482,7 @@ function finishLampStory() {
   crowButton.setAttribute("aria-label", "Crow above the lamp, ready to replay the Moonlit Beacon story");
   duckAmbientAudio(false);
   resetStoryAudio();
-  crowButton.focus({ preventScroll: true });
+  if (!showCompletionEnding()) crowButton.focus({ preventScroll: true });
 }
 
 function startLampStory() {
@@ -573,6 +604,8 @@ enterButton.addEventListener("click", () => {
 pauseButton.addEventListener("click", () => {
   setExperiencePaused(!experiencePaused);
 });
+
+completionButton.addEventListener("click", closeCompletionEnding);
 
 creditsOpenButtons.forEach((button) => {
   button.addEventListener("click", openCredits);

@@ -41,6 +41,9 @@ Start or continue a fresh chat with:
 - [x] Record the initial Phase 2 peer-playtesting observations from two smartphone Users.
 - [x] Revise carousel target feedback and the crow hit area from the playtest evidence.
 - [x] Run a follow-up smartphone test of the two revised interactions.
+- [x] Record the additional playtest finding that the complete experience needs an explicit game ending.
+- [x] Add a one-time whole-experience completion ending after all three stories are found.
+- [ ] Developer verifies the completion ending on a physical smartphone.
 - [ ] Add and complete the course-provided `debrief.md`.
 
 Main risk: the center attraction and side discovery anchors must remain visually distinct on short and narrow phones. Verification uses representative viewport screenshots plus direct Developer review; this checkpoint does not claim physical-phone verification.
@@ -102,6 +105,12 @@ Initial Phase 2 peer playtest — 2026-10-19:
 Phase 2 interaction revision — 2026-10-19: carousel horses that are already found remain tappable and now return a short repeat response instead of becoming silent controls; repeat selections explain that a different rider is needed and briefly illuminate the remaining targets. Progress text explicitly counts three different horses. The crow target now covers a larger region centered on the visible crow and upper lamp, plays its call immediately, shows a confirmation ring and `1 of 1` progress, and still starts the complete story with one activation. Sound levels, scene grading, story timing, replay, shared pause, and reduced-motion behavior remain unchanged. Follow-up smartphone testing is still required.
 
 Follow-up Phase 2 verification — 2026-10-19: Developer reviewed the published carousel and crow refinements and responded “很不错，继续,” approving the clearer distinct-horse feedback and revised one-click crow target without further changes. No device or browser details were supplied for this follow-up, so none are inferred here.
+
+Additional Phase 2 playtest finding — 2026-10-19: another User said that if the experience is understood as a game, it needs a final ending that tells players they have completed it. Interpretation: the three individual story endings do not yet communicate whole-experience completion clearly enough. Revision priority: add a one-time completion overlay after all three distinct stories have been finished, while preserving replay and the established visual and audio direction.
+
+Whole-experience ending revision — 2026-10-19: completing the third distinct story in any order now opens a `Midway Complete` ending with explicit completion copy, three earned-story badges, and the existing gleam chime. Scene targets remain locked until the User chooses `Keep Exploring`; closing the ending preserves completion state and all three replay controls. The ending appears only once per page session and includes a reduced-motion presentation. Physical-smartphone verification remains assigned to the Developer.
+
+Whole-experience ending verification — 2026-10-19: the existing local preview returned HTTP 200 with the expected UTF-8 content types for HTML, CSS, and JavaScript. Static checks confirm one completion dialog, three earned-story badges, completion checks at all three story endings, one-session gating, interaction locking and restoration, shared pause behavior for the ending animation, and a reduced-motion override. A Chrome DevTools interaction harness was added for repeatable state testing, but its first local run did not complete because the browser target was returned in an unexpected collection shape; the harness was hardened afterward and is not counted as passing evidence. Direct completion-flow verification remains open on the Developer's physical smartphone.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 

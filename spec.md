@@ -102,6 +102,13 @@ Acceptance checks:
 - Credit zehan-T for concept, direction, development, and testing; identify AI-assisted original background production and custom code; credit the Rye typeface and every runtime audio asset with its creator, license category, and direct source link.
 - Opening Credits during the experience must pause ambient motion, music, story audio, story timers, hint timers, and scene interaction through the existing shared pause state. Closing it resumes only if the experience was playing before the modal opened.
 
+### Whole-experience ending — implemented for review 2026-10-19
+
+- After the User completes all three distinct stories in any order, present one clear `Midway Complete` ending during that session. State that all three moonlit secrets were found and show the three earned story badges.
+- Lock scene targets while the ending is open, keep the established dark family-fantasy direction, and reuse the existing gleam chime rather than adding an uncredited asset.
+- Provide a keyboard- and touch-accessible `Keep Exploring` control. Closing the ending returns to the live scene without erasing completion state and leaves every story replayable.
+- Play/Pause and reduced-motion behavior remain available. The ending must not appear again when a completed story is replayed during the same page session.
+
 Define only enough to build and verify the current direction:
 
 - the intended User experience and chosen scene, ambience, and story behavior
