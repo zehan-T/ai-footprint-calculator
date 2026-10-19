@@ -149,10 +149,15 @@ button { font: inherit; }
 .carousel-horse { width: 17%; height: 29%; border-radius: 48% 48% 35% 35%; }
 .carousel-horse::after { content: ""; position: absolute; left: 50%; top: 55%; width: 34px; height: 39px; border: 3px solid transparent; border-top-color: transparent !important; border-radius: 45% 45% 55% 55%; transform: translate(-50%, -50%); }
 .carousel-horse.is-found::after { border-color: #ffd77c; filter: drop-shadow(0 0 5px #e99c31); animation: found-horse-glow 1.2s ease-in-out infinite alternate; }
+.carousel-horse.is-suggested::after { animation: carousel-horse-suggestion .9s ease-in-out 2; }
+.carousel-horse.is-repeat::after { animation: found-horse-repeat .68s ease-out; }
 .carousel-horse--left { left: 29%; bottom: 28%; }
 .carousel-horse--center { left: 44%; bottom: 25%; }
 .carousel-horse--right { left: 60%; bottom: 28%; }
-.scene-target--crow { right: 0; top: 26%; width: 24%; height: 13%; border-radius: 48%; }
+.scene-target--crow { right: 0; top: 23%; width: 31%; height: 22%; border-radius: 48%; }
+.scene-target--crow::after { content: ""; position: absolute; left: 61%; top: 43%; width: 40px; height: 40px; border: 2px solid transparent; border-radius: 50%; transform: translate(-50%, -50%); }
+.scene-target--crow.is-activated::after { animation: crow-tap-confirmation .72s ease-out; }
+.experience.is-paused .carousel-horse::after, .experience.is-paused .scene-target--crow::after { animation-play-state: paused !important; }
 .clue-meter { position: absolute; left: 10%; bottom: 17%; display: flex; gap: 5px; padding: 6px 8px; border: 1px solid #d8b06a70; border-radius: 999px; background: #100c14bd; box-shadow: 0 5px 18px #000a; transition: opacity .25s ease; pointer-events: none; }
 .clue-meter .clue-dot { width: 8px; height: 13px; border: 1px solid #a77a3d; border-radius: 2px; background: #40301e; transform: rotate(-5deg); transition: background .2s ease, box-shadow .2s ease; }
 .clue-meter .clue-dot:nth-child(2) { transform: rotate(3deg); }
@@ -258,6 +263,21 @@ button { font: inherit; }
 @keyframes found-horse-glow {
   from { opacity: .45; transform: translate(-50%, -50%) scale(.9); }
   to { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+}
+
+@keyframes carousel-horse-suggestion {
+  0%, 100% { border-color: transparent; filter: none; opacity: 0; transform: translate(-50%, -50%) scale(.82); }
+  45% { border-color: #e6c170; filter: drop-shadow(0 0 7px #d99836); opacity: .82; transform: translate(-50%, -50%) scale(1.06); }
+}
+
+@keyframes found-horse-repeat {
+  0% { border-color: #fff0b2; box-shadow: 0 0 0 0 #efb34d9c; opacity: 1; transform: translate(-50%, -50%) scale(.92); }
+  100% { border-color: #d8a74b; box-shadow: 0 0 0 15px transparent; opacity: .55; transform: translate(-50%, -50%) scale(1.08); }
+}
+
+@keyframes crow-tap-confirmation {
+  0% { border-color: #f1edbd; box-shadow: 0 0 0 0 #dce793a6, inset 0 0 14px #f2f5bd73; opacity: 1; transform: translate(-50%, -50%) scale(.72); }
+  100% { border-color: transparent; box-shadow: 0 0 0 22px transparent, inset 0 0 24px transparent; opacity: 0; transform: translate(-50%, -50%) scale(1.16); }
 }
 
 @keyframes carousel-story-glow {
@@ -402,4 +422,7 @@ h1 > span:first-child { display: block; margin-bottom: 5px; color: #d9b06e; font
   .experience.is-carousel-story-playing .ride-medallion { opacity: 1; transform: translate(-50%, -50%); }
   .experience.is-lamp-story-playing .lamp-story-glow { opacity: .62; transform: none; }
   .experience.is-lamp-story-playing .beacon-seal { right: 7%; top: 45%; opacity: 1; transform: translate(0, -50%); }
+  .carousel-horse.is-suggested::after { border-color: #d7b76f; opacity: .72; animation: none !important; }
+  .carousel-horse.is-repeat::after { border-color: #ffe7a3; opacity: 1; animation: none !important; }
+  .scene-target--crow.is-activated::after { border-color: #eef0bd; box-shadow: 0 0 12px #dce793; opacity: 1; animation: none !important; }
 }

@@ -142,7 +142,7 @@ function setSceneInteractionsLocked(locked) {
   interactionLayer.classList.toggle("is-locked", locked);
   boothButton.disabled = locked;
   carouselButtons.forEach((button) => {
-    button.disabled = locked || foundCarouselHorses.has(button.dataset.carouselHorse);
+    button.disabled = locked;
   });
   crowButton.disabled = locked;
 }
@@ -331,21 +331,35 @@ function updateCarouselProgress() {
   carouselClueMarkers.forEach((marker, index) => {
     marker.classList.toggle("is-found", index < progress);
   });
-  carouselClueMeter.setAttribute("aria-label", `Carousel clue progress: ${progress} of 3`);
-  carouselClueCopy.textContent = `${progress} of 3 carousel horses found`;
+  carouselClueMeter.setAttribute("aria-label", `Carousel clue progress: ${progress} of 3 different horses`);
+  carouselClueCopy.textContent = `${progress} of 3 different carousel horses found`;
 }
 
 function resetCarouselProgress() {
   foundCarouselHorses.clear();
   carouselButtons.forEach((button) => {
     const horseName = button.dataset.carouselHorse;
-    button.classList.remove("is-found");
+    button.classList.remove("is-found", "is-suggested", "is-repeat");
     button.setAttribute("aria-label", `${horseName[0].toUpperCase()}${horseName.slice(1)} carousel horse, not found`);
   });
   carouselClueMarkers.forEach((marker) => marker.classList.remove("is-found"));
   carouselClueMeter.classList.add("is-hidden");
-  carouselClueMeter.setAttribute("aria-label", "Carousel clue progress: 0 of 3");
-  carouselClueCopy.textContent = "0 of 3 carousel horses found";
+  carouselClueMeter.setAttribute("aria-label", "Carousel clue progress: 0 of 3 different horses");
+  carouselClueCopy.textContent = "0 of 3 different carousel horses found";
+}
+
+function pulseTarget(button, className, duration = 700) {
+  button.classList.remove(className);
+  void button.offsetWidth;
+  button.classList.add(className);
+  scheduleEvent(() => button.classList.remove(className), duration);
+}
+
+function suggestRemainingCarouselHorses() {
+  carouselButtons.forEach((button) => {
+    if (foundCarouselHorses.has(button.dataset.carouselHorse)) return;
+    pulseTarget(button, "is-suggested", 1900);
+  });
 }
 
 function finishCarouselStory() {
@@ -393,22 +407,31 @@ function handleCarouselDiscovery(event) {
 
   const button = event.currentTarget;
   const horseName = button.dataset.carouselHorse;
-  if (foundCarouselHorses.has(horseName)) return;
+  if (foundCarouselHorses.has(horseName)) {
+    const remaining = 3 - foundCarouselHorses.size;
+    pulseTarget(button, "is-repeat");
+    suggestRemainingCarouselHorses();
+    playStoryAudio(windUpAudio);
+    hudHint.textContent = `${remaining} different ${remaining === 1 ? "horse" : "horses"} still wait`;
+    setCaption(`This horse already shared its spark. Find ${remaining} different ${remaining === 1 ? "rider" : "riders"}.`);
+    return;
+  }
 
   foundCarouselHorses.add(horseName);
   button.classList.add("is-found");
-  button.disabled = true;
-  button.setAttribute("aria-label", `${horseName[0].toUpperCase()}${horseName.slice(1)} carousel horse, found`);
+  button.setAttribute("aria-label", `${horseName[0].toUpperCase()}${horseName.slice(1)} carousel horse, found; choose a different horse`);
   updateCarouselProgress();
   playStoryAudio(windUpAudio);
 
   const progress = foundCarouselHorses.size;
   if (progress === 1) {
     hudHint.textContent = "One painted horse remembers";
-    setCaption("A tiny winding key turns. 1 of 3 horses found.");
+    setCaption("A tiny winding key turns. 1 of 3 different horses found.");
+    suggestRemainingCarouselHorses();
   } else if (progress === 2) {
     hudHint.textContent = "Another horse waits beneath the canopy";
-    setCaption("A second wooden horse catches the moonlight. 2 of 3 found.");
+    setCaption("A second wooden horse catches the moonlight. 2 of 3 different horses found.");
+    suggestRemainingCarouselHorses();
   } else {
     startCarouselStory();
   }
@@ -424,6 +447,8 @@ function finishLampStory() {
   crowButton.tabIndex = 0;
   updateHudStoryCount();
   setCaption("The moonlit beacon settles. Follow the crow again whenever you wish.");
+  crowButton.classList.remove("is-activated");
+  crowButton.setAttribute("aria-label", "Crow above the lamp, ready to replay the Moonlit Beacon story");
   duckAmbientAudio(false);
   resetStoryAudio();
   crowButton.focus({ preventScroll: true });
@@ -434,12 +459,11 @@ function startLampStory() {
   experience.classList.add("is-lamp-story-playing");
   boothStory.setAttribute("aria-hidden", "false");
   setSceneInteractionsLocked(true);
-  hudHint.textContent = "The crow has awakened the moonlit beacon";
-  setCaption("The crow answers. The lamp sends its secret toward the moon...");
+  hudHint.textContent = "Moonlit signal found · 1 of 1";
+  setCaption("The crow answers at once. 1 of 1 signal found...");
   duckAmbientAudio(true);
 
   scheduleEvent(() => {
-    playStoryAudio(crowAudio);
     setCaption("A friendly call rings out above the lantern.");
   }, 260);
   scheduleEvent(() => {
@@ -457,6 +481,9 @@ function startLampStory() {
 
 function handleCrowDiscovery() {
   if (!experienceStarted || experiencePaused || isAnyStoryPlaying()) return;
+  pulseTarget(crowButton, "is-activated", 760);
+  crowButton.setAttribute("aria-label", "Moonlit beacon signal, 1 of 1 found");
+  playStoryAudio(crowAudio);
   startLampStory();
 }
 

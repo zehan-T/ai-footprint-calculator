@@ -82,7 +82,7 @@ Acceptance checks:
 
 ### Story 2: The Midnight Ride — implemented for review 2026-10-14
 
-- Divide the carousel into three large, keyboard-accessible horse targets. Finding each distinct left, center, or right horse produces a wind-up sound, persistent golden horseshoe marker, accessible progress update, and unique hint copy; already-found horses cannot increment progress twice.
+- Divide the carousel into three large, keyboard-accessible horse targets. Finding each distinct left, center, or right horse produces a wind-up sound, persistent golden horseshoe marker, accessible progress update, and unique hint copy. Already-found horses cannot increment progress twice, but remain interactive: a repeat selection produces audiovisual feedback, explains that the spark was already found, and briefly highlights the remaining distinct horses.
 - After all three horses are found in any order, lock every scene target and play an eight-second sequence: the carousel wakes, twelve practical lights and three horseshoe sparks orbit its canopy with soft gallop audio, and a `Midnight Ride` medallion appears before the attraction returns to stillness.
 - Duck ambient audio during the sequence, restore it afterward, and reset all three horse targets so the complete trigger and story are replayable without a reload. Story 1 progress must survive if it was partially discovered before Story 2 begins, and vice versa.
 - Provide timed carousel hints at 10 and 19 seconds when untouched. Global Play/Pause must freeze and resume story animation, sound, timing, hints, and interaction as one state.
@@ -90,7 +90,7 @@ Acceptance checks:
 
 ### Story 3: The Moonlit Beacon — implemented for review 2026-10-14
 
-- Use one large keyboard-accessible target over the crow perched above the right-side lamp. One activation immediately locks every scene target and begins the eight-second story; no multi-step progress or ordered lamp interaction is required.
+- Use one enlarged keyboard-accessible target aligned over the visible crow and upper lamp. One activation gives immediate crow-call and confirmation-ring feedback, reports `1 of 1` signal found, locks every scene target, and begins the eight-second story; no multi-step progress or ordered lamp interaction is required.
 - During the story, the lamp casts a restrained beam, the crow flies toward the moon with seven drifting feathers and wing audio, and a `Moonlit Beacon` seal appears before the lamp returns to its ambient state.
 - Use a crow call at the opening and created wing-flap audio for the flight. Duck and restore ambience around the story, make the crow available for replay afterward, and preserve partial progress in the other two stories.
 - Provide timed hints at 13 and 23 seconds if untouched. Global Play/Pause must freeze and resume story motion, audio, timing, hints, and interactions as one state.

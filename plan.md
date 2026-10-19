@@ -39,7 +39,7 @@ Start or continue a fresh chat with:
 - [x] Deploy the current prototype to a public HTTPS URL with GitHub Pages.
 - [x] Verify the public URL on a physical smartphone and record the result.
 - [x] Record the initial Phase 2 peer-playtesting observations from two smartphone Users.
-- [ ] Revise carousel target feedback and the crow hit area from the playtest evidence.
+- [x] Revise carousel target feedback and the crow hit area from the playtest evidence.
 - [ ] Run a follow-up smartphone test of the two revised interactions.
 - [ ] Add and complete the course-provided `debrief.md`.
 
@@ -98,6 +98,8 @@ Initial Phase 2 peer playtest — 2026-10-19:
 - User 1 tested independently on an iPhone 14; browser was not reported. The ticket booth was discovered first, no blocking point was observed, and sound and visual style were both rated positively. The User reported no additional concerns.
 - User 2 tested independently on an iPhone 17; browser was not reported. The ticket booth was discovered first, and sound and visual style were both rated positively. At the carousel, the User repeatedly selected the same horse because the need to find three different horses was not visually apparent. The User also attempted to tap the visible crow without receiving a response and activated the story only after the Developer suggested tapping the lamp.
 - Interpretation: preserve the approved sound mix and visual direction. Prioritize persistent differentiation between found and remaining carousel horses, then align and enlarge the crow interaction region so the visible crow responds directly. Follow-up testing must verify that Users discover both interactions without explanation.
+
+Phase 2 interaction revision — 2026-10-19: carousel horses that are already found remain tappable and now return a short repeat response instead of becoming silent controls; repeat selections explain that a different rider is needed and briefly illuminate the remaining targets. Progress text explicitly counts three different horses. The crow target now covers a larger region centered on the visible crow and upper lamp, plays its call immediately, shows a confirmation ring and `1 of 1` progress, and still starts the complete story with one activation. Sound levels, scene grading, story timing, replay, shared pause, and reduced-motion behavior remain unchanged. Follow-up smartphone testing is still required.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
