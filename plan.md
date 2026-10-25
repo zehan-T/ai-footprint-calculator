@@ -44,7 +44,7 @@ Start or continue a fresh chat with:
 - [x] Record the additional playtest finding that the complete experience needs an explicit game ending.
 - [x] Add a whole-experience completion ending after all three stories are found.
 - [x] Replace the ambiguous continuation action with a true `Play Again` reset.
-- [ ] Developer verifies the completion ending on a physical smartphone.
+- [x] Developer verifies the completion ending on a physical smartphone.
 - [ ] Add and complete the course-provided `debrief.md`.
 
 Main risk: the center attraction and side discovery anchors must remain visually distinct on short and narrow phones. Verification uses representative viewport screenshots plus direct Developer review; this checkpoint does not claim physical-phone verification.
@@ -116,6 +116,8 @@ Whole-experience ending verification — 2026-10-19: the existing local preview 
 Ending-action clarification — 2026-10-19: Developer found `Keep Exploring` ambiguous and requested language meaning “play once more.” The action is now `Play Again` and performs a real new-run reset: it clears distinct-story completion, any partial booth or carousel discovery, crow state, hint timing, and the completion gate. It also resumes a paused experience. Finishing all three stories in the new run can therefore produce the ending again.
 
 Deployment verification — 2026-10-25: local `main` equals `origin/main` (`11f583d`). Direct requests to `https://zehan-t.github.io/ai-footprint-calculator/` returned HTTP 200 for the page, stylesheet, script, and all 14 tracked asset files (9 audio, 3 backgrounds, Rye font and license). Normalized-line-ending MD5 hashes of the live `index.html`, `styles.css`, and `app.js` matched the local files, so the public build includes the whole-experience ending and `Play Again`. This confirms what is served, not how it behaves; the physical-smartphone check of the ending remains open and no device result is recorded here. The course `debrief.md` has been added to the repository root (unedited); the debrief conversation and its transcript are still to be completed by the Developer in a fresh session, after which the transcript is added to `transcripts/`.
+
+Phone verification of the ending — 2026-10-25: the Developer reported that testing the public build on a physical smartphone showed all behavior working, including the whole-experience ending. No device, browser, or per-step details were supplied, so none are recorded; this is the Developer's summary result.
 
 Create your own checklist for the next few results, using the workflow in `brief.md` and the current `spec.md`. Name the main risk, what each checkpoint should produce, and how you will verify it. Review and approve the approach before implementation.
 
